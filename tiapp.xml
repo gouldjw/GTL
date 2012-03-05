@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <sdk-version>1.8.2</sdk-version>
+    <deployment-targets>
+        <target device="mobileweb">false</target>
+        <target device="iphone">true</target>
+        <target device="ipad">false</target>
+        <target device="blackberry">false</target>
+        <target device="android">true</target>
+    </deployment-targets>
+    <id>com.avatarsoft.GameTalkLive</id>
+    <name>GameTalkLive</name>
+    <version>1.2.6</version>
+    <publisher>Avatar Software, LLC</publisher>
+    <url>http://www.gametalklive.com</url>
+    <description>Game Talk Live.  Get in the game.</description>
+    <copyright>2012 by Game Talk Live, LLC</copyright>
+    <icon>SportIconNS57.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>false</statusbar-hidden>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>false</analytics>
+    <guid>cfd85178-0726-4be7-b1d4-db5e7f782ab3</guid>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <modules>
+        <module platform="iphone" version="1.1">ti.smsview</module>
+    </modules>
+</ti:app>

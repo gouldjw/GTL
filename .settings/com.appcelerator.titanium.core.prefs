@@ -1,0 +1,26 @@
+#Thu Feb 09 17:43:30 CST 2012
+eclipse.preferences.version=1
+provisioning_profiles/development/094CEC8E-64A4-4B07-AC64-AA2D28354999/appid=*
+provisioning_profiles/development/094CEC8E-64A4-4B07-AC64-AA2D28354999/filepath=/Users/jgould/Downloads/iOS_Team_Provisioning_Profile_.mobileprovision
+provisioning_profiles/development/094CEC8E-64A4-4B07-AC64-AA2D28354999/name=iOS Team Provisioning Profile\: *
+provisioning_profiles/development/094CEC8E-64A4-4B07-AC64-AA2D28354999/uuid=094CEC8E-64A4-4B07-AC64-AA2D28354999
+provisioning_profiles/development/2668B36F-1513-4766-B1BA-C76A5DB71EB2/appid=com.avatarsoft.GameTalkLive
+provisioning_profiles/development/2668B36F-1513-4766-B1BA-C76A5DB71EB2/filepath=/Users/johngould/Downloads/GTL_Profile.mobileprovision
+provisioning_profiles/development/2668B36F-1513-4766-B1BA-C76A5DB71EB2/name=GTL Profile
+provisioning_profiles/development/2668B36F-1513-4766-B1BA-C76A5DB71EB2/uuid=2668B36F-1513-4766-B1BA-C76A5DB71EB2
+provisioning_profiles/development/4F5DD361-9E37-4A09-8E28-6ED98C806D62/appid=com.avatarsoft.GameTalkLive
+provisioning_profiles/development/4F5DD361-9E37-4A09-8E28-6ED98C806D62/filepath=/Users/johngould/Downloads/GTL_Profile.mobileprovision
+provisioning_profiles/development/4F5DD361-9E37-4A09-8E28-6ED98C806D62/name=GTL Profile
+provisioning_profiles/development/4F5DD361-9E37-4A09-8E28-6ED98C806D62/uuid=4F5DD361-9E37-4A09-8E28-6ED98C806D62
+provisioning_profiles/development/53A62946-5F42-4FDA-8431-0EB151D72AA9/appid=com.avatarsoft.GameTalkLive
+provisioning_profiles/development/53A62946-5F42-4FDA-8431-0EB151D72AA9/filepath=/Users/johngould/Downloads/GTL_Profile.mobileprovision
+provisioning_profiles/development/53A62946-5F42-4FDA-8431-0EB151D72AA9/name=GTL Profile
+provisioning_profiles/development/53A62946-5F42-4FDA-8431-0EB151D72AA9/uuid=53A62946-5F42-4FDA-8431-0EB151D72AA9
+provisioning_profiles/development/B9F4C0A2-2AA3-4C65-82D2-B87099F47424/appid=com.avatarsoft.*
+provisioning_profiles/development/B9F4C0A2-2AA3-4C65-82D2-B87099F47424/filepath=/Users/John/Downloads/Avatar_Apps.mobileprovision
+provisioning_profiles/development/B9F4C0A2-2AA3-4C65-82D2-B87099F47424/name=Avatar Apps
+provisioning_profiles/development/B9F4C0A2-2AA3-4C65-82D2-B87099F47424/uuid=B9F4C0A2-2AA3-4C65-82D2-B87099F47424
+provisioning_profiles/distribution/EC5725C7-F23F-4654-B0F2-CD20693191C5/appid=com.avatarsoft.GameTalkLive
+provisioning_profiles/distribution/EC5725C7-F23F-4654-B0F2-CD20693191C5/filepath=/Users/johngould/Downloads/GTL_Distribution_Profile.mobileprovision
+provisioning_profiles/distribution/EC5725C7-F23F-4654-B0F2-CD20693191C5/name=GTL Distribution Profile
+provisioning_profiles/distribution/EC5725C7-F23F-4654-B0F2-CD20693191C5/uuid=EC5725C7-F23F-4654-B0F2-CD20693191C5
