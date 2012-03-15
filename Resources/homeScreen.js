@@ -4,16 +4,31 @@
  
 	var homeScreen = Ti.UI.createWindow({
 		modal: 'false',
-		//url: 'news.js',
 		title: L("Game Talk Live"),
 		tabBarHidden: true,
 		navBarHidden: true
 		});
 		
+	var loginoutText;
+	if (Ti.App.Properties.getString('currentUser') != null && Ti.App.Properties.getString('currentUser') != '')
+	{
+		loginoutText = 'Log Out';
+	}
+	else
+	{
+		loginoutText = 'Log In';
+	}
+	
+	var loginoutBtn = Titanium.UI.createButton({
+		title: loginoutText,
+		style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+	});
+
 	// BS workaround to fake a navBar with no Back button		
 	var titleBar = Ti.UI.iOS.createToolbar({
 		top: -1,
-		barColor: '#036'
+		barColor: '#036',
+		items: [loginoutBtn]
 	});
 	
 	var titleLabel = Ti.UI.createLabel({
@@ -31,7 +46,6 @@
 	});
 	
 	titleBar.add(titleLabel);
-//	titleBar.setBackgroundColor('#111111');
 	homeScreen.add(titleBar);
 	
 	Titanium.UI.currentTab.open(homeScreen,{animated:true});
@@ -156,21 +170,13 @@ var bottomRightView = Ti.UI.createView({
 	right: 10	
 });
 
-var loginoutText;
-if (Ti.App.Properties.getString('currentUser') != null && Ti.App.Properties.getString('currentUser') != '')
-{
-	loginoutText = 'Log Out';
-}
-else
-{
-	loginoutText = 'Log In';
-}
+
 
 var bottomRightLabel = Ti.UI.createLabel({
 	height: 150,
 	width: 150,
 	top: 30,
-	text: loginoutText,
+	text: 'Find Friends',
 	textAlign: 'center',
 	font: {fontColor: 'black',
 			fontSize: 16,
@@ -179,23 +185,23 @@ var bottomRightLabel = Ti.UI.createLabel({
 	},
 });
 
-var loginIcon = Ti.UI.createImageView({
-	image: 'images/237-key.png',
+var findIcon = Ti.UI.createImageView({
+	image: 'images/06-magnify.png',
 	width: 50,
 	height: 50,
 	top: 0,
 	left: 'auto'
 });
 
-bottomRightLabel.add(loginIcon);
+bottomRightLabel.add(findIcon);
 bottomRightView.add(bottomRightLabel);
 
 
-bottomRightView.addEventListener('click', function(){
+loginoutBtn.addEventListener('click', function(){
 	if (Ti.App.Properties.getString('currentUser') != null && Ti.App.Properties.getString('currentUser') != '')
 	{
 		Ti.App.Properties.setString('currentUser', null);
-		bottomRightLabel.text = 'Log In';
+		loginoutBtn.title = 'Log In';
 	}
 	else
 	{
@@ -206,206 +212,136 @@ bottomRightView.addEventListener('click', function(){
 	}
 });
 
-
-/*
-bottomRightView.addEventListener('click', function()
-{
+bottomRightView.addEventListener('click', function(){
 	if (Ti.App.Properties.getString('currentUser') != null && Ti.App.Properties.getString('currentUser') != '')
 	{
-		Ti.App.Properties.setString('currentUser', null);
-		bottomRightLabel.text = 'Log In';
-		
-		var alertDialog = Titanium.UI.createAlertDialog({
-    		title: 'Later Tater!',
-   			message: 'You have been signed out of \n Game Talk Live',
-   			 buttonNames: ['OK']
-		});
-		alertDialog.show();
-	}
+		var t = Titanium.UI.create2DMatrix();
+		t = t.scale(0);
 	
-	else{
-	
-	var t = Titanium.UI.create2DMatrix();
-	t = t.scale(0);
-
-	var w = Titanium.UI.createWindow({
-		backgroundColor:'#FFFFFF',
-		borderWidth:8,
-		borderColor:'#999',
-		height:250,
-		width: 250,
-		borderRadius:10,
-		borderColor: "#000000",
-		opacity:0.95,
-		transform:t
-	});
-
-	var t1 = Titanium.UI.create2DMatrix();
-	t1 = t1.scale(1.1);
-	var a = Titanium.UI.createAnimation();
-	a.transform = t1;
-	a.duration = 200;
-
-	a.addEventListener('complete', function()
-	{
-		Titanium.API.info('here in complete');
-		var t2 = Titanium.UI.create2DMatrix();
-		t2 = t2.scale(1.0);
-		w.animate({transform:t2, duration:200});
-
-	});
-
-	}	
-	var userID = Ti.UI.createTextField({
-		width: '220',
-		height: '36',
-		top: '54',
-		autocapitalization: false,
-		hintText: '  Username or Email',
-		borderColor: '#000000',
-		borderWidth: '2',
-		borderRadius: '8'
-	});
-	
-	var password = Ti.UI.createTextField({
-		width: '220',
-		height: '36',
-		top: '104',
-		hintText: '  Password',
-		textAlign: 'left',
-		borderColor: '#000000',
-		borderWidth: '2',
-		borderRadius: '8',
-		passwordMask: true,
-	});
-
-	var loginBtn = Ti.UI.createButton({
-		width: '70',
-		height: '30',
-		color: '#000000',
-		top: '174',
-		left: '30',
-		title: 'Log In',
-		borderColor: '#000000',
-		borderWidth: '2',
-		borderRadius: '8'
-
-	});
-	
-	var closeBtn = Ti.UI.createButton({
-		width: '70',
-		height: '30',
-		color: '#000000',
-		top: '174',
-		right: '30',
-		title: 'Cancel',
-		borderColor: '#000000',
-		borderWidth: '2',
-		borderRadius: '8'
-	});	
-	
-	
-		
-	w.add(userID);
-	w.add(password);
-	w.add(loginBtn);
-	w.add(closeBtn);
-	
-	
-	/////
-	var xhr = Ti.Network.createHTTPClient();
-
-xhr.onerror = function (e) {
-    Ti.UI.createAlertDialog({ title: 'Error', message: e.error }).show();
-};
-xhr.setTimeout(10000);
-
-xhr.onload = function (e) {
-	if (this.responseText != null)
-	{
-		var user = JSON.parse(this.responseText);
-		Ti.App.Properties.setString('currentUser', user[0].UID);
-		Ti.App.Properties.setString('currentUserFName', user[0].FirstName);
-		Ti.App.Properties.setString('currentUserLName', user[0].LastName);
-		//Titanium.API.info(user[0].UID);
-		Ti.App.fireEvent('app:loggedIn', {
-			message: 'test'
+		var findWin = Ti.UI.createWindow({
+			title: L("Find Friends"),
+		    backgroundColor:'#FFFFFF',
+			borderWidth:2,
+			borderColor:'#000000',
+			height:400,
+			width:280,
+			top: 50,
+			borderRadius:8,
+			opacity:1,
+			transform:t
 		});
 		
-		Ti.UI.createAlertDialog({
-    		title: 'Welcome to Game Talk Live!', message:"Click Games & Chat to check into a game room."
-    	}).show();
-		win.close();
-    }
-    else
-    {
-    	Ti.UI.createAlertDialog({
-    		title: 'Incorrect Login', message:"Login incorrect.  Please try again."
-    	}).show();
-    }
-};
-
-loginBtn.addEventListener('click', function () {
-	if (userID.value == '' || password.value == '')
-	{
-		Ti.UI.createAlertDialog({
-    		title: 'Data error', message:"You must complete all fields.  Please try again."
-    	}).show();
+		var tv = Ti.UI.createTableView({
+			top: 36,
+			height: 305
+		});
+	
+		
+		var findFriendHeader = Ti.UI.createView({
+			height: 36,
+			top: 0
+			});
+		
+		var findFriendTitle = Ti.UI.createLabel({
+			text: 'Find Friends',
+			height: 32,
+			width: 280,
+			top: 2,
+			backgroundColor: '#39C',
+			font:{fontColor: '#FFFFFF',
+					 fontWeight: 'bold',
+					 fontFamily: 'Helvetica Neue',
+					 fontSize: 24},
+					 opacity: '.8',
+			textAlign: 'center'
+		});
+		
+		var findFriendFooter = Ti.UI.createView({
+			height: 32,
+			width: 150,
+			top: 351
+		});
+		
+		var findFriendCancel = Ti.UI.createButton({
+			height: 32,
+			width: 75,
+			right: -20,
+			title: 'Done',
+			color: '#000000'
+		});
+		
+		var findFriendSearch = Ti.UI.createButton({
+			height: 32,
+			width: 75,
+			left: -20,
+			title: 'Search',
+			color: '#000000'
+		});
+		
+		findFriendFooter.add(findFriendSearch);
+		findFriendFooter.add(findFriendCancel);
+		
+		findFriendSearch.addEventListener('click', function() {
+			userList = createUserListTableView(searchText.value);
+			findWin.add(userList);
+		});
+		
+		findFriendCancel.addEventListener('click', function(){
+			var t3 = Titanium.UI.create2DMatrix();
+			t3 = t3.scale(0);
+			findWin.close({transform:t3,duration:300});
+		});
+		
+		findFriendHeader.add(findFriendTitle);
+		findWin.add(findFriendHeader);
+		findWin.add(findFriendFooter);
+		
+		var searchText = Titanium.UI.createTextField({
+		    height: 32,
+		    top: 45,
+		    left: 12,
+		    width: 250,
+		    hintText: 'Enter Search Text',
+		    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+		    font: { fontSize: 14, fontFamily: 'Helvetica Neue', fontWeight: 'bold' }
+		});
+		
+		findWin.add(searchText);
+		
+		var t1 = Titanium.UI.create2DMatrix();
+		t1 = t1.scale(1.1);
+		var a = Titanium.UI.createAnimation();
+		a.transform = t1;
+		a.duration = 200;
+	
+		a.addEventListener('complete', function()
+		{
+			var t2 = Titanium.UI.create2DMatrix();
+			t2 = t2.scale(1.0);
+			findWin.animate({transform:t2, duration:200});
+		});
+	
+		findWin.open(a);
 	}
 	else
 	{
-		xhr.open('GET', 'http://wcf.gametalklive.com/Account.svc/login/?userName=' + userID.value + '&password=' + password.value + '&appKey=1&deviceType=' + Ti.Platform.osname + '&deviceID=3');
-		xhr.send();
-		w.close();
+		Ti.UI.createAlertDialog({ title: 'Please Login First', message: 'You must login before you can search for friends.' }).show();
 	}
-	
 });
 
 
-	var t1 = Titanium.UI.create2DMatrix();
-	t1 = t1.scale(1.1);
-	var a = Titanium.UI.createAnimation();
-	a.transform = t1;
-	a.duration = 200;
-
-	a.addEventListener('complete', function()
-	{
-		Titanium.API.info('here in complete');
-		var t2 = Titanium.UI.create2DMatrix();
-		t2 = t2.scale(1.0);
-		w.animate({transform:t2, duration:200});
-
-	});
-	
-	
-	closeBtn.addEventListener('click', function()
-	{
-		var t3 = Titanium.UI.create2DMatrix();
-		t3 = t3.scale(0);
-		w.close({transform:t3,duration:300});
-	});
-
-	w.open(a);
-
-});
-*/
 
 //back to correct, existing code
 topRightView.addEventListener('click', function(){
 	if (Ti.App.Properties.getString('currentUser') != null && Ti.App.Properties.getString('currentUser') != '')
 	{
-		// var profileWin = Ti.UI.createWindow({
-			// url: 'profile.js'
-		// });
-		// profileWin.open();
- 
-	var profileWin = Ti.UI.createWindow({
-		modal: 'false',
-		url: 'profile.js',
-		title: L("Edit Profile"),
-	    barColor: '#036',
-		tabBarHidden: true,
-		navBarHidden: false
+		var profileWin = Ti.UI.createWindow({
+			modal: 'false',
+			url: 'profile.js',
+			title: L("Edit Profile"),
+		    barColor: '#036',
+			tabBarHidden: true,
+			navBarHidden: false
 	});
 	
 	Titanium.UI.currentTab.open(profileWin,{animated:true});
@@ -430,16 +366,7 @@ bottomLeftView.addEventListener('click', function(){
 	});
 	
 	Titanium.UI.currentTab.open(newsWin,{animated:true});
-	 
-//	var newsTab = Titanium.UI.createTab({  
-//	  title:'My Window',
-//	  window:newsWin
-//	});
-	 
-//	newsTabGroup.addTab(newsTab);
-//	newsTabGroup.open({
-//		transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT
-//	});
+	
 });
 
 topLeftView.addEventListener('click', function(){
@@ -485,7 +412,7 @@ topLeftView.addEventListener('click', function(){
 });
 
 Ti.App.addEventListener('app:loggedIn', function(e) {
-	bottomRightLabel.text = 'Log Out';
+	loginoutBtn.title = 'Log Out';
 });
 
 
@@ -498,3 +425,111 @@ homeScreen.add(bottomRightView);
 //homeScreen.open();
 
 
+
+
+createUserListTableView = function(searchString) {
+	Ti.API.info('Search String: ' + searchString);
+	var starIcon;
+	var xhr = Ti.Network.createHTTPClient();
+	xhr.onerror = function (e) {
+	Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
+	};
+	xhr.setTimeout(10000);
+
+	xhr.onload = function (e) {
+		Ti.API.info('Search String: ' + searchString);
+		var row;
+		var data = [];
+		
+		if (this.responseText != null)
+		{
+			//var rowColor;
+			var userlist = JSON.parse(this.responseText);	
+
+			for (var i = 0; i < userlist.length; i++)
+			{
+				if (userlist[i].Favorite)
+				{
+					starIcon = 'images/btn_rating_star_on_focused_holo_light.png';
+				}
+				else
+				{
+					starIcon = 'images/btn_rating_star_off_disabled_holo_light.png';
+				}
+				
+				userLabel = Titanium.UI.createLabel({
+				    text: userlist[i].LastName + ', ' + userlist[i].FirstName + ' (' + userlist[i].UserName + ')',
+				    font: { fontSize: 14, fontFamily: 'Ariel' },
+				    textAlign: 'left',
+				    left: 25
+				});
+				
+				row = Ti.UI.createTableViewRow({
+					height: 22,
+					id: userlist[i].UID,
+					title: '', //userlist[i].LastName + ', ' + userlist[i].FirstName + ' (' + userlist[i].UID + ')',
+					leftImage: starIcon
+				});
+				
+				row.add(userLabel);
+						
+				data.push(row);
+			}
+		}
+	    else
+	    {
+	    	//Titanium.API.info('No data');
+	    	row = Ti.UI.createTableViewRow({
+        		height: 35,
+        		title: 'No users found.',
+        		id: 1
+    		});
+			data.push(row);	
+		}
+			
+		userListView.setData(data);
+	};
+		
+
+	var userListView = Ti.UI.createTableView({
+		top: 86,
+		height: 255
+	});
+
+	userListView.addEventListener('click', function(_e) {
+		var favUserObj;
+		var favUserSender = Ti.Network.createHTTPClient();
+		
+		if (_e.rowData.leftImage == 'images/btn_rating_star_off_disabled_holo_light.png')
+		{
+			favUserObj = {
+				'uid': Ti.App.Properties.getString('currentUser'),
+				'favUID': _e.rowData.id,
+				'add': true
+			}
+			_e.rowData.leftImage = 'images/btn_rating_star_on_focused_holo_light.png';
+		}
+		else if (_e.rowData.leftImage == 'images/btn_rating_star_on_focused_holo_light.png')
+		{
+			favUserObj = {
+				'uid': Ti.App.Properties.getString('currentUser'),
+				'favUID': _e.rowData.id,
+				'add': false
+			}
+			_e.rowData.leftImage = 'images/btn_rating_star_off_disabled_holo_light.png';
+		}		
+
+		favUserSender.open('POST', 'http://wcf.gametalklive.com/Profile.svc/setFavoriteUser');
+		favUserSender.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+		favUserSender.send(JSON.stringify(favUserObj));
+	});
+	
+	function populateData() {
+		xhr.open('GET', 'http://wcf.gametalklive.com/Profile.svc/searchForUsers/?uid=' + Ti.App.Properties.getString('currentUser') + '&searchString=' + searchString);
+		xhr.send();
+	}
+	//run initial query
+	populateData();
+	
+	return userListView;
+}

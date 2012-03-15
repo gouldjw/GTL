@@ -35,7 +35,7 @@ function backToGames()
 	logoutBtn.addEventListener('click', backToSports);
 	win.title = currLeagueName;
 	win.titleControl = null;
-	win.setRightNavButton(null);
+	win.setRightNavButton(u);
 }
 
 function formatTime(inputDateTime)
@@ -53,7 +53,7 @@ function formatTime(inputDateTime)
                     minute +
                     " " +
                     ap +
-                    " CST";
+                    " CDT";
    return timeString;
 } // function getClockTime()
 
@@ -73,31 +73,8 @@ if (Ti.Platform.osname === 'iphone') {
 			    width: 'auto'
 			});
 			win.setLeftNavButton(logoutBtn);
-			//win.setLeftNavButton(u);
+			win.setRightNavButton(u);
 		}
-
-		var tf = Ti.UI.createTextField({
-			height:40,
-			top:10,
-			width:250,
-			keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
-			returnKeyType:Titanium.UI.RETURNKEY_DONE,
-			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
-			hintText:L('test')
-		});
-		//win.add(tf);
-
-		var save = Ti.UI.createButton({
-			title:L('save'),
-			height:40,
-			width:80,
-			top:10
-		});
-//		save.addEventListener('click', function() {
-//			bh.db.add(tf.value);
-//			win.close();
-//		});
-		//win.add(save);
 
 
 
@@ -191,6 +168,7 @@ createGamesTableView = function(leagueID, leagueName) {
 					visitorTeam: gamelist[i].VisitorTeam,
 					homeAbbrev: gamelist[i].HomeAbbrev,
 					visitorAbbrev: gamelist[i].VisitorAbbrev,
+					noHomeTeam: gamelist[i].NoHomeTeam,
 					active: gamelist[i].Active,
 					color: rowColor
 				});
@@ -227,7 +205,7 @@ createGamesTableView = function(leagueID, leagueName) {
 		if (_e.rowData.active == 'True')
 		{
 			win.remove(gamesList);
-			chatRoom = createChatRoom(_e.rowData.id, _e.rowData.homeTeam, _e.rowData.visitorTeam, _e.rowData.homeAbbrev, _e.rowData.visitorAbbrev);
+			chatRoom = createChatRoom(_e.rowData.id, _e.rowData.homeTeam, _e.rowData.visitorTeam, _e.rowData.homeAbbrev, _e.rowData.visitorAbbrev, _e.rowData.noHomeTeam);
 			win.add(chatRoom);
 		}
 		else

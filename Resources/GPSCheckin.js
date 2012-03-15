@@ -21,6 +21,7 @@ if (Titanium.Geolocation.locationServicesEnabled==false)
 else
 {
     Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+    Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 }
 	//
 	//  SET DISTANCE FILTER.  THIS DICTATES HOW OFTEN AN EVENT FIRES 

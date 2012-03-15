@@ -33,6 +33,7 @@ var locationCheckin = function()
 	
 	
 	    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+	    Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 	    var currentLongitude;
 		var currentLatitude;
 		
@@ -214,8 +215,13 @@ var locationCheckin = function()
 						row.add(locationTypeBtn);
 						row.add(locDescLabel);
 						row.add(locAddrLabel);
-						row.add(locDistLabel);
-						row.add(locDistUnitsLabel);
+						
+						if (parseInt(checkinlist[i].LocType) != 0)
+						{
+							row.add(locDistLabel);
+							row.add(locDistUnitsLabel);
+						}
+						
 						row.add(locReviewLabel);
 						data.push(row);
 					}
@@ -242,26 +248,144 @@ var locationCheckin = function()
 				message: 'test'
 			});
 			
-			var thanksMessage;
+			var thanksMessage = '';
+			var privacyMessage = '';
 			if (_e.rowData.desc == 'Home Check-In')
-			{ thanksMessage = 'Thanks for checking in at home!'; }
-			else { thanksMessage = 'Thanks for checking in at ' + _e.rowData.desc + '!'; }
+			{ thanksMessage = 'Thanks for checking in\nat home!';
+			  privacyMessage = '\n(Home address location will NEVER be shared.)' }
+			else { thanksMessage = 'Thanks for checking in at\n' + _e.rowData.desc + '!'; }
 			
-			var popup = Ti.UI.createAlertDialog({
-				title: 'Checked In!',
-				message: thanksMessage
+//			var popup = Ti.UI.createAlertDialog({
+//				title: 'Checked In!',
+//				message: thanksMessage
+//			});
+//			popup.addEventListener('click', function() {
+//				Titanium.UI.currentTab.close(checkinWin,{animated:true});
+//			});
+			
+//			popup.show();
+
+			var t = Titanium.UI.create2DMatrix();
+			t = t.scale(0);
+		
+			var privacyWin = Ti.UI.createWindow({
+				title: L("Privacy Check"),
+			    backgroundColor:'#FFFFFF',
+				borderWidth:2,
+				borderColor:'#000000',
+				height:200,
+				width:250,
+				top: 125,
+				borderRadius:8,
+				opacity:1,
+				transform:t
 			});
-			popup.addEventListener('click', function() {
+			
+			var privacyTitle = Ti.UI.createLabel({
+				text: thanksMessage,
+				height: 64,
+				width: 240,
+				top: 0,
+				font:{fontColor: '#000',
+						 fontWeight: 'bold',
+						 fontFamily: 'Helvetica Neue',
+						 fontSize: 16},
+						 opacity: '.8',
+				textAlign: 'center'
+			});
+			
+			var privacyText = Ti.UI.createLabel({
+				text: 'Would you like your checkin location to be publicly viewable?' + privacyMessage,
+				height: 80,
+				width: 230,
+				top: 64,
+				font:{fontColor: '#000',
+						 fontWeight: 'normal',
+						 fontFamily: 'Helvetica Neue',
+						 fontSize: 14},
+						 opacity: '.8',
+				textAlign: 'center'
+			});
+			
+			var publicYes = Ti.UI.createButton({
+				height: 32,
+				width: 75,
+				right: 30,
+				top: 150,
+				title: 'Yes!',
+				color: '#000000'
+			});
+			
+			var publicNo = Ti.UI.createButton({
+				height: 32,
+				width: 75,
+				left: 30,
+				top: 150,
+				title: 'No!',
+				color: '#000000'
+			});
+			
+			publicYes.addEventListener('click', function()
+			{
+				checkinObj.isPrivate = 0;
+				postCheckin(checkinObj);
+				privacyWin.close();
 				Titanium.UI.currentTab.close(checkinWin,{animated:true});
 			});
 			
-			popup.show();
-			//setTimeout(function()
-			//{
-			//	popup.hide();
-			//	Titanium.UI.currentTab.close(checkinWin,{animated:true});
-			//},3000);
+			publicNo.addEventListener('click', function()
+			{
+				checkinObj.isPrivate = 1;
+				postCheckin(checkinObj);
+				privacyWin.close();
+				Titanium.UI.currentTab.close(checkinWin,{animated:true});
+			});
+			
+			
+			privacyWin.add(privacyTitle);
+			privacyWin.add(privacyText);
+			privacyWin.add(publicYes);
+			privacyWin.add(publicNo);
+			
+			
+			var t1 = Titanium.UI.create2DMatrix();
+			t1 = t1.scale(1.1);
+			var a = Titanium.UI.createAnimation();
+			a.transform = t1;
+			a.duration = 200;
+		
+			a.addEventListener('complete', function()
+			{
+				var t2 = Titanium.UI.create2DMatrix();
+				t2 = t2.scale(1.0);
+				privacyWin.animate({transform:t2, duration:200});
+			});
+		
+			privacyWin.open(a);
+		
+			
+
+			var checkinObj;
+			
+			checkinObj = {
+				'gameID': currGameID,
+				'userName': Ti.App.Properties.getString('currentUser'),
+				'lat': currentLatitude,
+				'lon': currentLongitude,
+				'locID': _e.rowData.id,
+				'isPrivate': 1,
+				'appKey': '',
+				'deviceType': '',
+				'deviceID': ''
+			}
 		});
+		
+		function postCheckin(checkinObj) {
+			var checkinSender = Ti.Network.createHTTPClient();
+			checkinSender.open('POST', 'http://wcf.gametalklive.com/Checkin.svc/checkin');
+			checkinSender.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+			checkinSender.send(JSON.stringify(checkinObj));
+		}
 		
 		function populateData() {
 			Titanium.Geolocation.getCurrentPosition(function(e)

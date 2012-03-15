@@ -11,6 +11,7 @@ chatReceiver.setTimeout(30000);
 chatReceiver.onload = function (e) {
 
 	var chatDT;
+	var checkinLocText;
 	
 	if (this.responseText != null)
 	{
@@ -18,6 +19,7 @@ chatReceiver.onload = function (e) {
 		var parsedDateTime;
 		for (var i = 0; i < chats.length; i++)
 		{
+			checkinLocText = '';
 //			if (i == 0 && chats[i].UserID != Ti.App.Properties.getString('currentUser'))
 //			{
 //				Titanium.Media.vibrate();
@@ -25,8 +27,17 @@ chatReceiver.onload = function (e) {
 //			}
 
 			chatDT = new Date(chats[i].TimeSent.substring(0, 18));
-			parsedDateTime = (chatDT.getMonth() + 1);
-			parsedDateTime += '/' + chatDT.getDate() + ' ';
+			var date = new Date();
+			var d  = date.getDate();
+			parsedDateTime = '';
+
+			if (chatDT.getDate() != d)
+			{
+				parsedDateTime = (chatDT.getMonth() + 1);
+				parsedDateTime += '/' + chatDT.getDate() + ' ';
+			}
+			
+			
 			if (chatDT.getHours() > 12)
 				parsedDateTime += (chatDT.getHours() - 12);
 			else if (chatDT.getHours() > 0)
@@ -48,13 +59,47 @@ chatReceiver.onload = function (e) {
 			if (chats[i].UserID == Ti.App.Properties.getString('currentUser'))
 			{
 				chatPoster = 'You';
-				chatRoom.addLabel(chatPoster + ' @ ' + parsedDateTime + ':');
+				//Ti.API.info(chats[i].CheckinType);
+				if (chats[i].CheckinType && checkinButton.backgroundImage != 'images/117-todo-green.png')
+				{
+					checkinButton = Ti.UI.createButton({ backgroundImage:'images/117-todo-green.png', height:19, width:18, right:20 });
+					checkinButton.addEventListener('click', locationCheckin);
+					win.setRightNavButton(checkinButton);
+				}
+				
+				if (chats[i].CheckinType == '0' && chats[i].CheckinVenueID)
+				{
+					if (chats[i].VenueDescription)
+					{
+						checkinLocText = ' (at ' + chats[i].VenueDescription + ') ';
+					}
+					else
+					{
+						checkinLocText = ' (at home) ';
+					}
+				}
+				chatRoom.addLabel(chatPoster + checkinLocText + ' @ ' + parsedDateTime + ':');
 				chatRoom.sendMessage(chats[i].ChatText);
 			}
 			else
 			{
-				chatPoster = chats[i].UserID;
-				chatRoom.addLabel(chatPoster + ' @ ' + parsedDateTime + ':');
+				Ti.API.info(chats[i].IsFavorite);
+				if (chats[i].IsFavorite) {chatPoster = '* ';}
+				else {chatPoster = '';}
+				
+				chatPoster += chats[i].UserID;
+				if (chats[i].CheckinType == '0' && chats[i].CheckinVenueID)
+				{
+					if (chats[i].VenueDescription)
+					{
+						checkinLocText = ' (at ' + chats[i].VenueDescription + ') ';
+					}
+					else
+					{
+						checkinLocText = ' (at home) ';
+					}
+				}
+				chatRoom.addLabel(chatPoster + checkinLocText + ' @ ' + parsedDateTime + ':');
 			    chatRoom.recieveMessage(chats[i].ChatText);
 			}
 

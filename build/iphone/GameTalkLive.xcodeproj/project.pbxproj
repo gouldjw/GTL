@@ -21,11 +21,11 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2412F467115C296300454E5B /* TiMediaVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412F465115C296300454E5B /* TiMediaVideoPlayer.m */; };
 		242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		D0AED952F940430083E3BF61 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D56C9D70D5A4F1599D83FD1 /* libti.smsview.a */; };
-		A06729B8096347A7A85EFCE7 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E48CDABD10A40CDBF59528F /* libti.smsview.a */; };
+		198CEABB43464804A99B4C94 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAF3018B14744819004FCCA /* libti.smsview.a */; };
+		059944B527524839AC460DF8 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0136738909947E5B478BAF3 /* libti.smsview.a */; };
 		242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		62E15AEDEB6B485280B5FF8A /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D56C9D70D5A4F1599D83FD1 /* libti.smsview.a */; };
-		9C1E88CDC9E248B59DFCBE50 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E48CDABD10A40CDBF59528F /* libti.smsview.a */; };
+		FE752EA3630B4BEF9540753A /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAF3018B14744819004FCCA /* libti.smsview.a */; };
+		B48723E4231147F695752286 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0136738909947E5B478BAF3 /* libti.smsview.a */; };
 		242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
 		242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967611BAD2F20046A0D0 /* AsyncUdpSocket.m */; };
 		242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
@@ -876,8 +876,8 @@
 		DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB0A57111E1BAE001DC2D1 /* libxml2.dylib */; };
 		DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24597034118FF66300519F79 /* StoreKit.framework */; };
 		DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		97F152B6C8A64F0AA048841A /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D56C9D70D5A4F1599D83FD1 /* libti.smsview.a */; };
-		35CA9C799DDD49AE9F12381B /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E48CDABD10A40CDBF59528F /* libti.smsview.a */; };
+		0D891FE19A8E411BA4BE51B3 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAF3018B14744819004FCCA /* libti.smsview.a */; };
+		F7A9704D1DFA435782E99805 /* libti.smsview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0136738909947E5B478BAF3 /* libti.smsview.a */; };
 		DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5C75811E6364F00F097E2 /* libtiverify.a */; };
 		DABDEB07128B5A8F00C85FEA /* AudioStreamerBC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF580128A1F3600457759 /* AudioStreamerBC.m */; };
 		DABDEB08128B5A8F00C85FEA /* AudioStreamerCUR.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF582128A1F3600457759 /* AudioStreamerCUR.m */; };
@@ -937,8 +937,8 @@
 		241EAA21118AB3BB0081A5BE /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = Classes/defines.h; sourceTree = SOURCE_ROOT; };
 		241EAEC5118E2BA90081A5BE /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		242E8E3011BA39FD0046A0D0 /* libTiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTiCore.a; path = lib/libTiCore.a; sourceTree = SOURCE_ROOT; };
-		8D56C9D70D5A4F1599D83FD1 /* libti.smsview.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.smsview.a; path = "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/modules/iphone/ti.smsview/1.1/libti.smsview.a"; sourceTree = "<absolute>"; };
-		3E48CDABD10A40CDBF59528F /* libti.smsview.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.smsview.a; path = "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/modules/iphone/ti.smsview/1.1/libti.smsview.a"; sourceTree = "<absolute>"; };
+		9BAF3018B14744819004FCCA /* libti.smsview.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.smsview.a; path = "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/modules/iphone/ti.smsview/1.1/libti.smsview.a"; sourceTree = "<absolute>"; };
+		A0136738909947E5B478BAF3 /* libti.smsview.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.smsview.a; path = "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/modules/iphone/ti.smsview/1.1/libti.smsview.a"; sourceTree = "<absolute>"; };
 		242E95C811BAC8B40046A0D0 /* TiDebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiDebugger.h; path = Classes/TiDebugger.h; sourceTree = SOURCE_ROOT; };
 		242E967311BAD2F20046A0D0 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Classes/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		242E967411BAD2F20046A0D0 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Classes/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
@@ -1570,8 +1570,8 @@
 				24EB0A58111E1BAE001DC2D1 /* libxml2.dylib in Frameworks */,
 				24597035118FF66300519F79 /* StoreKit.framework in Frameworks */,
 				242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */,
-				D0AED952F940430083E3BF61 /* libti.smsview.a in Frameworks */,
-				A06729B8096347A7A85EFCE7 /* libti.smsview.a in Frameworks */,
+				198CEABB43464804A99B4C94 /* libti.smsview.a in Frameworks */,
+				059944B527524839AC460DF8 /* libti.smsview.a in Frameworks */,
 				242EA11611BD956F0046A0D0 /* ExternalAccessory.framework in Frameworks */,
 				24D5C75911E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DAA4B2AE134E3DBD00AB6011 /* libti_ios_debugger.a in Frameworks */,
@@ -1603,8 +1603,8 @@
 				24D8E4AB119B9D8A00F8CAA6 /* libxml2.dylib in Frameworks */,
 				24D8E4AC119B9D8A00F8CAA6 /* StoreKit.framework in Frameworks */,
 				242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */,
-				62E15AEDEB6B485280B5FF8A /* libti.smsview.a in Frameworks */,
-				9C1E88CDC9E248B59DFCBE50 /* libti.smsview.a in Frameworks */,
+				FE752EA3630B4BEF9540753A /* libti.smsview.a in Frameworks */,
+				B48723E4231147F695752286 /* libti.smsview.a in Frameworks */,
 				24D5C75A11E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DAA4B2AF134E3DBD00AB6011 /* libti_ios_debugger.a in Frameworks */,
 				DADE76D613D65C6F0079FC75 /* libicucore.dylib in Frameworks */,
@@ -1636,8 +1636,8 @@
 				DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */,
 				DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */,
 				DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */,
-				97F152B6C8A64F0AA048841A /* libti.smsview.a in Frameworks */,
-				35CA9C799DDD49AE9F12381B /* libti.smsview.a in Frameworks */,
+				0D891FE19A8E411BA4BE51B3 /* libti.smsview.a in Frameworks */,
+				F7A9704D1DFA435782E99805 /* libti.smsview.a in Frameworks */,
 				DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */,
 				DAA4B2B0134E3DBD00AB6011 /* libti_ios_debugger.a in Frameworks */,
 				DADE76D713D65C7D0079FC75 /* libicucore.dylib in Frameworks */,
@@ -2804,8 +2804,8 @@
 				DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */,
 				24D5C75811E6364F00F097E2 /* libtiverify.a */,
 				242E8E3011BA39FD0046A0D0 /* libTiCore.a */,
-				8D56C9D70D5A4F1599D83FD1 /* libti.smsview.a */,
-				3E48CDABD10A40CDBF59528F /* libti.smsview.a */,
+				9BAF3018B14744819004FCCA /* libti.smsview.a */,
+				A0136738909947E5B478BAF3 /* libti.smsview.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,

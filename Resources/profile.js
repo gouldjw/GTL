@@ -6,50 +6,15 @@ var profileWindow = Titanium.UI.currentWindow;
 profileWindow.backgroundColor = '#ffffff';
 profileWindow.backButtonTitle = 'Home';
 
-
-
-/*
-// begin Banner
-var profileBanner = Ti.UI.createView({
-	height: 125,
-	width: 320,
-	top: -50,
-	zIndex: '0'
+var u = Titanium.UI.createLabel({
+    color: '#ffffff',
+    text: Ti.App.Properties.getString('currentUser'),
+    font: { fontSize: 14, fontFamily: 'Ariel' },
+    textAlign: 'left',
+    height: 'auto',
+    width: 'auto'
 });
-
-/*
---------------------------------------------------
-var profileBackgroundImage = Ti.UI.createImageView({
-	image: 'backgrounds/YardLines_096_crop_blur.png',
-	height: 125
-});
-profileBanner.add(profileBackgroundImage);
-----------------------------------------------------
-*/
-
-
-/*
-var profileBannerLabel = Ti.UI.createLabel({
-	text: 'Edit Profile',
-	textAlign: 'center',
-	top: 68,
-	width: 180,
-	height: 24,
-	font: {fontFamily: 'Helvetica Neue',
-			fontSize: 22,
-			fontWeight: 'bold'
-		},
-		color: '#FFFFFF',
-		shadowColor: '#000000',
-		shadowOffset: {
-			x: 1,
-			y: 1
-		}
-});
-
-
-profileBanner.add(profileBannerLabel);
-*/
+profileWindow.setRightNavButton(u);
 
 
 

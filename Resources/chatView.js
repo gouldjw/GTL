@@ -6,6 +6,7 @@ var currGameID;
 var ChatView1;
 var getChatIntervalHolder;
 var chatTextWidth = 270;
+var checkinButton
 
 Ti.include(
 	'chatWS.js',
@@ -15,20 +16,27 @@ Ti.include(
 
 Titanium.SMSView = require('ti.smsview');
 
-createChatRoom = function(gameID, homeTeam, visitorTeam, homeAbbrev, visitorAbbrev) {
+createChatRoom = function(gameID, homeTeam, visitorTeam, homeAbbrev, visitorAbbrev, noHomeTeam) {
 	checkCurrentLocation(gameID);
 	
 	currGameID = gameID;
 	logoutBtn.removeEventListener('click', backToSports);
 	logoutBtn.addEventListener('click', backToGames);
 	win.title = 'Game Chat';
+	var roomTitle;
+	
+	Ti.API.info(noHomeTeam);
+	if (noHomeTeam)
+	{roomTitle = visitorAbbrev + ' vs. ' + homeAbbrev;}
+	else
+	{roomTitle = visitorAbbrev + ' @ ' + homeAbbrev}
 	
 	var titleLabel = Titanium.UI.createLabel({
 	    color:'#fff',
 	    height:36,
 	    width:210,
 	    top:0,
-	    text:visitorAbbrev + ' @ ' + homeAbbrev,
+	    text:roomTitle,
 	    textAlign:'center',
 	    font:{fontFamily:'Ariel',fontSize:18},
 	    shadowColor:'#eee',shadowOffset:{x:0,y:1}
@@ -39,8 +47,9 @@ createChatRoom = function(gameID, homeTeam, visitorTeam, homeAbbrev, visitorAbbr
 	
 	
 	// Create GPS Check-in button
-	var checkinButton = Ti.UI.createButton({
+	checkinButton = Ti.UI.createButton({
 		backgroundImage:'images/117-todo.png',
+		backgroundColor:'transparent',
 		height:19,
 		width:18,
 		right:20
@@ -49,7 +58,7 @@ createChatRoom = function(gameID, homeTeam, visitorTeam, homeAbbrev, visitorAbbr
 	Ti.App.addEventListener('app:checkedIn', function(e) {
 		//Ti.API.info('testing!');
 		//checkinButton.setBackgroundImage('images/117-todo-green.png');
-		var checkinButton = Ti.UI.createButton({ backgroundImage:'images/117-todo-green.png', height:19, width:18, right:20 });
+		checkinButton = Ti.UI.createButton({ backgroundImage:'images/117-todo-green.png', height:19, width:18, right:20 });
 		checkinButton.addEventListener('click', locationCheckin);
 		win.setRightNavButton(checkinButton);
 	});
