@@ -1,13 +1,76 @@
 //var homeScreen = Titanium.UI.currentWindow;
 //bottomLeftView.addEventListener('click', function(){
 //	var newsTabGroup = Titanium.UI.createTabGroup();
- 
+ var Admob = require('ti.admob');
+
 	var homeScreen = Ti.UI.createWindow({
 		modal: 'false',
 		title: L("Game Talk Live"),
 		tabBarHidden: true,
 		navBarHidden: true
 		});
+		
+		
+	
+var ad;
+homeScreen.add(ad = Admob.createView({
+    top: 0, left: 0,
+    width: 320, height: 50,
+    publisherId: 'a14d65f9fb812a6', // You can get your own at http: //www.admob.com/
+    adBackgroundColor: 'black',
+    testing: true,
+    dateOfBirth: new Date(1975, 10, 1, 12, 1, 1),
+    gender: 'male',
+    keywords: ''
+}));
+ad.addEventListener('didReceiveAd', function() {
+  //  alert('Did receive ad!');
+});
+ad.addEventListener('didFailToReceiveAd', function() {
+   // alert('Failed to receive ad!');
+});
+ad.addEventListener('willPresentScreen', function() {
+  //  alert('Presenting screen!');
+});
+ad.addEventListener('willDismissScreen', function() {
+    //alert('Dismissing screen!');
+});
+ad.addEventListener('didDismissScreen', function() {
+   // alert('Dismissed screen!');
+});
+ad.addEventListener('willLeaveApplication', function() {
+   // alert('Leaving the app!');
+});
+
+/*
+ And we'll try to get the user's location for this second ad!
+ */
+Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+Ti.Geolocation.distanceFilter = 0;
+Ti.Geolocation.purpose = 'To show you local ads, of course!';
+Ti.Geolocation.getCurrentPosition(function reportPosition(e) {
+    if (!e.success || e.error) {
+        // aw, shucks...
+    }
+    else {
+        homeScreen.add(Admob.createView({
+            bottom: 0, left: 0,
+            width: 320, height: 50,
+            publisherId: 'a14d65f9fb812a6', // You can get your own at http: //www.admob.com/
+            adBackgroundColor: 'black',
+            testing: true,
+            dateOfBirth: new Date(1975, 10, 1, 12, 1, 1),
+            gender: 'male',
+            keywords: '',
+            location: e.coords
+        }));
+    }
+});
+
+ 	
+		
+		
+		
 		
 	var loginoutText;
 	if (Ti.App.Properties.getString('currentUser') != null && Ti.App.Properties.getString('currentUser') != '')

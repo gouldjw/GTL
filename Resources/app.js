@@ -13,6 +13,7 @@ Titanium.UI.setBackgroundColor('#ffffff');
 
 
 
+
 var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
 
 var homeScreenWin = Ti.UI.createWindow({
@@ -31,6 +32,7 @@ var tab1 = Titanium.UI.createTab({
 	id:'tab1',
 	window:homeScreenWin
 });
+
 
 tabGroup.addTab(tab1);
 tabGroup.open({
