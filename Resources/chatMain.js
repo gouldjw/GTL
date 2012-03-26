@@ -4,6 +4,82 @@ Titanium.UI.currentWindow.setBackgroundColor('#333333');
 var win = Titanium.UI.currentWindow;
 //Titanium.API.info('Entered Chat Main');
 
+
+
+
+
+//  AdMob Stuff!
+
+var Admob = require('ti.admob');
+
+
+var ad;
+/*
+win.add(ad = Admob.createView({
+    top: 0, left: 0,
+    width: 320, height: 50,
+    publisherId: 'a14d65f9fb812a6', // You can get your own at http: //www.admob.com/
+    adBackgroundColor: 'black',
+    testing: true,
+    dateOfBirth: new Date(1975, 10, 1, 12, 1, 1),
+    gender: 'male',
+    keywords: ''
+}));
+ad.addEventListener('didReceiveAd', function() {
+  //  alert('Did receive ad!');
+});
+ad.addEventListener('didFailToReceiveAd', function() {
+   // alert('Failed to receive ad!');
+});
+ad.addEventListener('willPresentScreen', function() {
+  //  alert('Presenting screen!');
+});
+ad.addEventListener('willDismissScreen', function() {
+    //alert('Dismissing screen!');
+});
+ad.addEventListener('didDismissScreen', function() {
+   // alert('Dismissed screen!');
+});
+ad.addEventListener('willLeaveApplication', function() {
+   // alert('Leaving the app!');
+});
+
+/*
+ And we'll try to get the user's location for this second ad!
+ */
+Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
+Ti.Geolocation.distanceFilter = 0;
+Ti.Geolocation.purpose = ''; //To show you local ads, of course!';
+Ti.Geolocation.getCurrentPosition(function reportPosition(e) {
+    if (!e.success || e.error) {
+        // aw, shucks...
+    }
+    else {
+        win.add(ad = Admob.createView({
+            bottom: 0, left: 0,
+            width: 320, height: 50,
+            publisherId: 'a14d65f9fb812a6', // You can get your own at http: //www.admob.com/
+            adBackgroundColor: 'black',
+            testing: true,
+            dateOfBirth: new Date(1975, 10, 1, 12, 1, 1),
+            gender: 'male',
+            keywords: '',
+            location: e.coords
+        }));
+    }
+});
+
+
+
+
+
+
+//////// Admob
+
+
+
+
 Ti.include(
 	'chatView.js'
 );
@@ -18,7 +94,8 @@ function logout()
 function backToSports()
 {
 	win.remove(gamesList);
-	sportsList = createSportsTableView();	
+	sportsList = createSportsTableView();
+	sportsList.height = 367;
 	win.add(sportsList);
 	logoutBtn.title = 'Home';
 	logoutBtn.removeEventListener('click', backToSports);
@@ -28,7 +105,7 @@ function backToSports()
 
 function backToGames()
 {
-	win.remove(chatRoom);
+	win.remove(chatRoomHolder);
 	gamesList = createGamesTableView(currLeagueID, currLeagueName);
 	win.add(gamesList);
 	logoutBtn.removeEventListener('click', backToGames);
@@ -36,6 +113,7 @@ function backToGames()
 	win.title = currLeagueName;
 	win.titleControl = null;
 	win.setRightNavButton(u);
+	ad.bottom = 0;
 }
 
 function formatTime(inputDateTime)
@@ -89,7 +167,7 @@ createGamesTableView = function(leagueID, leagueName) {
 	var xhr = Ti.Network.createHTTPClient();
 
 	xhr.onerror = function (e) {
-	    Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
+	    //Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
 	};
 	xhr.setTimeout(10000);
 
@@ -199,14 +277,17 @@ createGamesTableView = function(leagueID, leagueName) {
 		tv.setData(data);
 	};
 
-	var tv = Ti.UI.createTableView();
+	var tv = Ti.UI.createTableView({top: 0, height: 367});
 	tv.addEventListener('singletap', function(_e) {
 		//Titanium.API.info(_e.rowData.id);
 		if (_e.rowData.active == 'True')
 		{
 			win.remove(gamesList);
+			chatRoomHolder = Ti.UI.createView({top: 50, height: 367});
 			chatRoom = createChatRoom(_e.rowData.id, _e.rowData.homeTeam, _e.rowData.visitorTeam, _e.rowData.homeAbbrev, _e.rowData.visitorAbbrev, _e.rowData.noHomeTeam);
-			win.add(chatRoom);
+			chatRoomHolder.add(chatRoom);
+			win.add(chatRoomHolder);
+			ad.bottom = 367;
 		}
 		else
 		{
@@ -232,7 +313,7 @@ createSportsTableView = function() {
 	var xhr = Ti.Network.createHTTPClient();
 
 	xhr.onerror = function (e) {
-	    Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
+	    //Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
 	};
 	xhr.setTimeout(10000);
 
@@ -278,7 +359,7 @@ createSportsTableView = function() {
 		tv.setData(data);
 	};
 
-	var tv = Ti.UI.createTableView();
+	var tv = Ti.UI.createTableView({top: 0, height:417});
 	tv.addEventListener('click', function(_e) {
 		//Titanium.API.info(_e.rowData.id);
 		if (_e.rowData.active == 'True')

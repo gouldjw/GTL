@@ -11,7 +11,7 @@
 		});
 		
 		
-	
+	/*
 var ad;
 homeScreen.add(ad = Admob.createView({
     top: 0, left: 0,
@@ -46,8 +46,9 @@ ad.addEventListener('willLeaveApplication', function() {
  And we'll try to get the user's location for this second ad!
  */
 Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
 Ti.Geolocation.distanceFilter = 0;
-Ti.Geolocation.purpose = 'To show you local ads, of course!';
+Ti.Geolocation.purpose = ''; //To show you local ads, of course!';
 Ti.Geolocation.getCurrentPosition(function reportPosition(e) {
     if (!e.success || e.error) {
         // aw, shucks...
@@ -495,7 +496,7 @@ createUserListTableView = function(searchString) {
 	var starIcon;
 	var xhr = Ti.Network.createHTTPClient();
 	xhr.onerror = function (e) {
-	Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
+		//Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
 	};
 	xhr.setTimeout(10000);
 

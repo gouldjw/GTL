@@ -67,81 +67,81 @@ createChatRoom = function(gameID, homeTeam, visitorTeam, homeAbbrev, visitorAbbr
 	checkinButton.addEventListener('click', locationCheckin);
 	win.setRightNavButton(checkinButton);
 	
-
-/////////////////////////////////////////
-//Code to create Awesome SMS Chat View
-/////////////////////////////////////////
-var textArea = Ti.SMSView.createView({
-	maxLines:6,
-	minLines:2,		
-	backgroundColor: '#dae1eb',
-	sendColor:'Blue',
-	recieveColor: 'Gray',
-	selectedColor: 'White',
-	animated: true,
-	buttonTitle: 'Send',
-	font: {fontSize: 14},
-	autocorrect: true,
-	textAlignment: 'left',
-	textColor: 'Black',
-	camButtonDisabled: true,
-	camButton: false,
-	returnType: Ti.SMSView.RETURNKEY_SEND		
-});
-
-
-
-textArea.addEventListener('click', function(e){
-	if(e.scrollView){
-		textArea.blur();
-	}
-
-});
-textArea.addEventListener('buttonClicked', function(e){
-	sendChat(e.value);
-});
-textArea.addEventListener('camButtonClicked', function(){
 	
-	var options = Ti.UI.createOptionDialog({
-		options: ['Photo Gallery', 'Cancel'],
-		cancel: 1,
-		title: 'Send a photo'
+	/////////////////////////////////////////
+	//Code to create Awesome SMS Chat View
+	/////////////////////////////////////////
+	var textArea = Ti.SMSView.createView({
+		maxLines:6,
+		minLines:2,		
+		backgroundColor: '#dae1eb',
+		sendColor:'Blue',
+		recieveColor: 'Gray',
+		selectedColor: 'White',
+		animated: true,
+		buttonTitle: 'Send',
+		font: {fontSize: 14},
+		autocorrect: true,
+		textAlignment: 'left',
+		textColor: 'Black',
+		camButtonDisabled: true,
+		camButton: false,
+		returnType: Ti.SMSView.RETURNKEY_SEND
 	});
-	options.show();
-	options.addEventListener('click', function(e) {
-		if(e.index == 0){
-		// --------------- open the photo gallery and send an image ------------------
-			Titanium.Media.openPhotoGallery({
-				success: function(event) {
-					textArea.sendMessage(event.media);
-				},
-				mediaTypes: [Ti.Media.MEDIA_TYPE_PHOTO]
-			});
-		// ---------------------------------------------------------------------------
+	
+	
+	
+	textArea.addEventListener('click', function(e){
+		if(e.scrollView){
+			textArea.blur();
 		}
-	});	
-});
-
-textArea.addEventListener('change', function(e){
-	Ti.API.info(e.value);
-});
-
-textArea.addEventListener('messageClicked', function(e){
-	if(e.text){
-		Ti.API.info('Text: '+e.text);
-	}
-	if(e.image){
-		Ti.API.info('Image: '+e.image);
-	}
-	Ti.API.info('Index: ' + e.index);
-});
-/////////////////////////////////////////
+	
+	});
+	textArea.addEventListener('buttonClicked', function(e){
+		sendChat(e.value);
+	});
+	textArea.addEventListener('camButtonClicked', function(){
+		
+		var options = Ti.UI.createOptionDialog({
+			options: ['Photo Gallery', 'Cancel'],
+			cancel: 1,
+			title: 'Send a photo'
+		});
+		options.show();
+		options.addEventListener('click', function(e) {
+			if(e.index == 0){
+			// --------------- open the photo gallery and send an image ------------------
+				Titanium.Media.openPhotoGallery({
+					success: function(event) {
+						textArea.sendMessage(event.media);
+					},
+					mediaTypes: [Ti.Media.MEDIA_TYPE_PHOTO]
+				});
+			// ---------------------------------------------------------------------------
+			}
+		});	
+	});
+	
+	textArea.addEventListener('change', function(e){
+		Ti.API.info(e.value);
+	});
+	
+	textArea.addEventListener('messageClicked', function(e){
+		if(e.text){
+			Ti.API.info('Text: '+e.text);
+		}
+		if(e.image){
+			Ti.API.info('Image: '+e.image);
+		}
+		Ti.API.info('Index: ' + e.index);
+	});
+	/////////////////////////////////////////
 
 	latestChatDT = '1/1/1900';
 	getChat(latestChatDT);
 
 	
-	getChatIntervalHolder = setInterval(getChat, 30000);
+	getChatIntervalHolder = setInterval(getChat, 15000);
 	return textArea;
 	
 };
