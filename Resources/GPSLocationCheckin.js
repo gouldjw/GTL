@@ -1,4 +1,7 @@
 var checkinWin;
+Ti.Geolocation.preferredProvider = "gps";
+var currentLongitudeCheckin;
+var currentLatitudeCheckin;
 
 var locationCheckin = function()
 {
@@ -10,16 +13,23 @@ var locationCheckin = function()
 	}
 	else
 	{
-		/*
-		var backBtn = Ti.UI.createButton({
-			systemButton: Titanium.UI.iPhone.SystemButton.CANCEL
-		});
-		
-		backBtn.addEventListener('click', function() {
-			//checkinWin.close();
-			Titanium.UI.currentTab.close(checkinWin,{animated:true});
-		});
-		*/
+		if (Titanium.Platform.name != 'android') {
+			var authorization = Titanium.Geolocation.locationServicesAuthorization;
+			Ti.API.info('Authorization: '+authorization);
+			if (authorization == Titanium.Geolocation.AUTHORIZATION_DENIED) {
+				Ti.UI.createAlertDialog({
+					title:'GPS',
+					message:'You have disallowed Titanium from running geolocation services.'
+				}).show();
+			}
+			else if (authorization == Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
+				Ti.UI.createAlertDialog({
+					title:'GPS',
+					message:'Your system has disallowed Titanium from running geolocation services.'
+				}).show();
+			}
+		}
+	
 		checkinWin = Ti.UI.createWindow({
 			title: L("Location Check In"),
 			tabBarHidden:true,
@@ -33,10 +43,10 @@ var locationCheckin = function()
 	
 	
 	    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
-	    Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+	    Titanium.Geolocation.distanceFilter = 10;
+	    Titanium.Geolocation.purpose = '';
 	    var currentLongitude;
 		var currentLatitude;
-		
 		
 		Titanium.Geolocation.getCurrentPosition(function(e)
 		{
@@ -48,6 +58,7 @@ var locationCheckin = function()
 	
 			currentLongitude = e.coords.longitude;
 			currentLatitude = e.coords.latitude;
+			var timestamp = e.coords.timestamp;
 		});
 		
 		Titanium.UI.currentTab.open(checkinWin,{animated:true});
@@ -56,8 +67,8 @@ var locationCheckin = function()
 		var xhr = Ti.Network.createHTTPClient();
 
 		xhr.onerror = function (e) {
-		    Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
-		    checkinWin.close();
+		    //Ti.UI.createAlertDialog({ title: 'Error', message: 'Cannot communicate with server.  Please try again later.' }).show();
+		    Titanium.UI.currentTab.close(checkinWin,{animated:true});
 		};
 		xhr.setTimeout(10000);
 		
@@ -101,14 +112,14 @@ var locationCheckin = function()
 						locationHeight = 24;
 					}
 					
-					if (checkinlist[i].LocDesc.length > 17)
-					{ shortenedDesc = checkinlist[i].LocDesc.substr(0, 17) + "..."; }
+					if (checkinlist[i].LocDesc.length > 20)
+					{ shortenedDesc = checkinlist[i].LocDesc.substr(0, 18) + "..."; }
 					else { shortenedDesc = checkinlist[i].LocDesc; }
 					
 					
 					var d2r = 0.0174532925199433;
-					var lat1 = currentLatitude;
-					var lon1 = currentLongitude;
+					var lat1 = currentLatitudeCheckin;
+					var lon1 = currentLongitudeCheckin;
 					var lat2 = checkinlist[i].LocGPSLat;
 					var lon2 = checkinlist[i].LocGPSLon;
 	
@@ -158,7 +169,7 @@ var locationCheckin = function()
 						    text: checkinlist[i].LocAddress1.substr(0, 35),
 						    font: { fontSize: 14, fontFamily: 'Ariel', fontWeight: 'bold' },
 						    textAlign: 'left',
-						    top: -42,
+						    top: 2,
 						    left: 40
 						});
 						locReviewLabel = Titanium.UI.createLabel({
@@ -166,7 +177,7 @@ var locationCheckin = function()
 						    text: reviewText,
 						    font: { fontSize: 14, fontFamily: 'Ariel', fontWeight: 'bold' },
 						    textAlign: 'left',
-						    top: 40,
+						    top: 49,
 						    left: 40
 						});
 							
@@ -178,9 +189,9 @@ var locationCheckin = function()
 						locDescLabel = Titanium.UI.createLabel({
 						    color: 'black',
 						    text: shortenedDesc,
-						    font: { fontSize: 20, fontFamily: 'Ariel' },
+						    font: { fontSize: 18, fontFamily: 'Ariel' },
 						    textAlign: 'left',
-						    top: 0,
+						    top: 25,
 						    left: 40
 						});
 						locDistLabel = Titanium.UI.createLabel({
@@ -188,7 +199,7 @@ var locationCheckin = function()
 						    text: displayDistance,
 						    font: { fontSize: 30, fontFamily: 'Ariel' },
 						    textAlign: 'right',
-						    top: 0,
+						    top: 18,
 						    right: 40
 						});
 						locDistUnitsLabel = Titanium.UI.createLabel({
@@ -196,7 +207,7 @@ var locationCheckin = function()
 						    text: distanceUnits,
 						    font: { fontSize: 12, fontFamily: 'Ariel' },
 						    textAlign: 'left',
-						    top: 0,
+						    top: 28,
 						    left: 285
 						});
 										
@@ -248,6 +259,16 @@ var locationCheckin = function()
 				message: 'test'
 			});
 			
+			var askForSeat = false;
+			var privacyWinHeight = 250;
+			var privacyWinTop = 125;
+			if (parseInt(_e.rowData.type) > 0 && parseInt(_e.rowData.type) < 30)
+			{
+				askForSeat = true;
+				privacyWinHeight = 350;
+				privacyWinTop = 75;
+			}
+			
 			var thanksMessage = '';
 			var privacyMessage = '';
 			if (_e.rowData.desc == 'Home Check-In')
@@ -273,12 +294,21 @@ var locationCheckin = function()
 			    backgroundColor:'#FFFFFF',
 				borderWidth:2,
 				borderColor:'#000000',
-				height:200,
+				height: privacyWinHeight,
 				width:250,
-				top: 125,
+				top: privacyWinTop,
 				borderRadius:8,
 				opacity:1,
 				transform:t
+			});
+			
+			var backgroundWin = Ti.UI.createWindow({
+				backgroundColor: '#000000',
+				opacity: 0.5
+			});
+			
+			var privacyView = Ti.UI.createScrollView({
+				height: privacyWinHeight
 			});
 			
 			var privacyTitle = Ti.UI.createLabel({
@@ -295,10 +325,10 @@ var locationCheckin = function()
 			});
 			
 			var privacyText = Ti.UI.createLabel({
-				text: 'Would you like your checkin location to be publicly viewable?' + privacyMessage,
-				height: 80,
+				text: 'Would you like your check-in location to appear next to your username in the game room?\n' + privacyMessage,
+				height: 120,
 				width: 230,
-				top: 64,
+				top: 55,
 				font:{fontColor: '#000',
 						 fontWeight: 'normal',
 						 fontFamily: 'Helvetica Neue',
@@ -310,8 +340,8 @@ var locationCheckin = function()
 			var publicYes = Ti.UI.createButton({
 				height: 32,
 				width: 75,
-				right: 30,
-				top: 150,
+				left: 30,
+				top: 190,
 				title: 'Yes!',
 				color: '#000000'
 			});
@@ -319,33 +349,177 @@ var locationCheckin = function()
 			var publicNo = Ti.UI.createButton({
 				height: 32,
 				width: 75,
-				left: 30,
-				top: 150,
+				right: 30,
+				top: 190,
 				title: 'No!',
 				color: '#000000'
 			});
 			
-			publicYes.addEventListener('click', function()
+			
+			privacyWin.add(privacyView);
+			privacyView.add(privacyTitle);
+			privacyView.add(privacyText);
+			privacyView.add(publicYes);
+			privacyView.add(publicNo);
+			
+			
+			if (askForSeat)
 			{
-				checkinObj.isPrivate = 0;
-				postCheckin(checkinObj);
-				privacyWin.close();
-				Titanium.UI.currentTab.close(checkinWin,{animated:true});
-			});
+				var askForSeatLabel = Ti.UI.createLabel({
+					text: '(OPTIONAL) You can also provide your Section, Row and Seat number to make yourself eligible for promotions and drawings!',
+					height: 80,
+					width: 230,
+					top: 52,
+					font:{fontColor: '#000',
+							 fontWeight: 'normal',
+							 fontFamily: 'Helvetica Neue',
+							 fontSize: 14},
+							 opacity: '.8',
+					textAlign: 'center'
+				});
+				
+				var sectionInput = Ti.UI.createTextField({
+				    color: '#336699',
+				    height: 30,
+				    top: 140,
+				    width: 100,
+				    hintText: 'Section',
+				    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+				    autocapitalization:Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
+				    autocorrect:false,
+				    font: { fontSize: 14, fontFamily: 'Ariel' }
+				});
+				
+				var rowInput = Ti.UI.createTextField({
+				    color: '#336699',
+				    height: 30,
+				    top: 180,
+				    width: 100,
+				    hintText: 'Row',
+				    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+				    autocapitalization:Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
+				    autocorrect:false,
+				    font: { fontSize: 14, fontFamily: 'Ariel' }
+				});
+				
+				var seatInput = Ti.UI.createTextField({
+				    color: '#336699',
+				    height: 30,
+				    top: 220,
+				    width: 100,
+				    hintText: 'Seat Number',
+				    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+				    autocapitalization:Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
+				    autocorrect:false,
+				    font: { fontSize: 14, fontFamily: 'Ariel' }
+				});
+				
+				
+				var seatYes = Ti.UI.createButton({
+					height: 32,
+					width: 200,
+					top: 260,
+					title: 'Sounds good to me!',
+					color: '#000000'
+				});
+				
+				var seatNo = Ti.UI.createButton({
+					height: 32,
+					width: 200,
+					top: 300,
+					title: 'No Thanks!',
+					color: '#000000'
+				});
+				
+				
+				seatYes.addEventListener('click', function()
+				{
+					if (sectionInput.value == '' && rowInput.value == '' && seatInput.value == '')
+					{
+						Ti.UI.createAlertDialog({
+				    		title: 'Nothing Entered!', message:"Please enter at least one value or choose 'No Thanks!'"
+				    	}).show();
+					}
+					else
+					{
+						Ti.UI.createAlertDialog({
+				    		title: 'Thanks!', message:"Thank you for entering your seat location."
+				    	}).show();
+						checkinObj.isPrivate = 0;
+						postCheckin(checkinObj);
+						backgroundWin.close();
+						privacyWin.close();
+						checkinWin.remove(tv);
+						Titanium.UI.currentTab.close(checkinWin,{animated:true});
+					}
+				});
+				
+				seatNo.addEventListener('click', function()
+				{
+					checkinObj.isPrivate = 1;
+					postCheckin(checkinObj);
+					backgroundWin.close();
+					privacyWin.close();
+					checkinWin.remove(tv);
+					Titanium.UI.currentTab.close(checkinWin,{animated:true});
+				});
+				
+				
+
 			
-			publicNo.addEventListener('click', function()
+				publicYes.addEventListener('click', function()
+				{
+					checkinObj.isPrivate = 0;
+					privacyView.remove(privacyText);
+					privacyView.remove(publicYes);
+					privacyView.remove(publicNo);
+					privacyView.add(askForSeatLabel);
+					privacyView.add(sectionInput);
+					privacyView.add(rowInput);
+					privacyView.add(seatInput);
+					privacyView.add(seatYes);
+					privacyView.add(seatNo);
+				});
+				
+				publicNo.addEventListener('click', function()
+				{
+					checkinObj.isPrivate = 1;
+					privacyView.remove(privacyText);
+					privacyView.remove(publicYes);
+					privacyView.remove(publicNo);
+					privacyView.add(askForSeatLabel);
+					privacyView.add(sectionInput);
+					privacyView.add(rowInput);
+					privacyView.add(seatInput);
+					privacyView.add(seatYes);
+					privacyView.add(seatNo);
+				});
+			}
+			
+			else
 			{
-				checkinObj.isPrivate = 1;
-				postCheckin(checkinObj);
-				privacyWin.close();
-				Titanium.UI.currentTab.close(checkinWin,{animated:true});
-			});
 			
-			
-			privacyWin.add(privacyTitle);
-			privacyWin.add(privacyText);
-			privacyWin.add(publicYes);
-			privacyWin.add(publicNo);
+				publicYes.addEventListener('click', function()
+				{
+					checkinObj.isPrivate = 0;
+					postCheckin(checkinObj);
+					backgroundWin.close();
+					privacyWin.close();
+					checkinWin.remove(tv);
+					Titanium.UI.currentTab.close(checkinWin,{animated:true});
+				});
+				
+				publicNo.addEventListener('click', function()
+				{
+					checkinObj.isPrivate = 1;
+					postCheckin(checkinObj);
+					backgroundWin.close();
+					privacyWin.close();
+					checkinWin.remove(tv);
+					Titanium.UI.currentTab.close(checkinWin,{animated:true});
+				});
+				
+			}
 			
 			
 			var t1 = Titanium.UI.create2DMatrix();
@@ -361,22 +535,42 @@ var locationCheckin = function()
 				privacyWin.animate({transform:t2, duration:200});
 			});
 		
+			backgroundWin.open();
 			privacyWin.open(a);
 		
 			
 
 			var checkinObj;
+			var secInputVal;
+			var rowInputVal;
+			var seatInputVal;
+			if (askForSeat)
+			{
+				secInputVal = sectionInput.value;
+				rowInputVal = rowInput.value;
+				seatInputVal = seatInput.value;
+			}
+			else
+			{
+				secInputVal = '';
+				rowInputVal = '';
+				seatInputVal = '';
+			}
+			
 			
 			checkinObj = {
 				'gameID': currGameID,
 				'userName': Ti.App.Properties.getString('currentUser'),
-				'lat': currentLatitude,
-				'lon': currentLongitude,
+				'lat': currentLatitudeCheckin,
+				'lon': currentLongitudeCheckin,
 				'locID': _e.rowData.id,
 				'isPrivate': 1,
 				'appKey': '',
 				'deviceType': '',
-				'deviceID': ''
+				'deviceID': '',
+				'section': secInputVal,
+				'row': rowInputVal,
+				'seat': seatInputVal
 			}
 		});
 		
@@ -392,20 +586,23 @@ var locationCheckin = function()
 			{
 				if (e.error)
 				{
-					currentLocation.text =  'First error: ' + JSON.stringify(e.error);
+					//currentLocation.text =  'First error: ' + 
+					Ti.API.info(JSON.stringify(e.error));
 		            return;
 				}
 		
-				currentLongitude = e.coords.longitude;
-				currentLatitude = e.coords.latitude;
+				currentLongitudeCheckin = e.coords.longitude;
+				currentLatitudeCheckin = e.coords.latitude;
 				var altitude = e.coords.altitude;
 				var heading = e.coords.heading;
 				var accuracy = e.coords.accuracy;
 				var speed = e.coords.speed;
 				var timestamp = e.coords.timestamp;
 				var altitudeAccuracy = e.coords.altitudeAccuracy;
+				
+				Ti.API.info(new Date(timestamp));
 			
-				xhr.open('GET', 'http://wcf.gametalklive.com/Checkin.svc/getcilocations/?lat=' + currentLatitude + '&lon=' + currentLongitude + '&gameID=0&userName=' + Ti.App.Properties.getString('currentUser') + '&appKey=1&deviceType=' + Ti.Platform.osname + '&deviceID=3');
+				xhr.open('GET', 'http://wcf.gametalklive.com/Checkin.svc/getcilocations/?lat=' + currentLatitudeCheckin + '&lon=' + currentLongitudeCheckin + '&gameID=0&userName=' + Ti.App.Properties.getString('currentUser') + '&appKey=1&deviceType=' + Ti.Platform.osname + '&deviceID=3');
 				xhr.send();
 			});
 		}

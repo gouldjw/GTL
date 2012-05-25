@@ -1,13 +1,12 @@
 // Gelocation Function
 
-    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+    //Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
 
    //
    //  SET DISTANCE FILTER.  
   //   THIS DICTATES HOW OFTEN AN EVENT FIRES BASED ON THE DISTANCE THE DEVICE MOVES
 
-    Titanium.Geolocation.distanceFilter = 2;
-    Titanium.Geolocation.purpose = ''; //"Game Talk Live \"At the Game\" Check-in";
+
     
 
       //
@@ -21,7 +20,9 @@ if (Titanium.Geolocation.locationServicesEnabled==false)
 else
 {
     Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
-    Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+	Titanium.Geolocation.preferredProvider = "gps";
+    Titanium.Geolocation.distanceFilter = 10;
+    Titanium.Geolocation.purpose = ''; //"Game Talk Live \"At the Game\" Check-in";
 }
 	//
 	//  SET DISTANCE FILTER.  THIS DICTATES HOW OFTEN AN EVENT FIRES 

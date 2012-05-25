@@ -322,14 +322,14 @@ bottomRightView.addEventListener('click', function(){
 		
 		var findFriendFooter = Ti.UI.createView({
 			height: 32,
-			width: 150,
+			width: 190,
 			top: 351
 		});
 		
 		var findFriendCancel = Ti.UI.createButton({
 			height: 32,
 			width: 75,
-			right: -20,
+			right: 0,
 			title: 'Done',
 			color: '#000000'
 		});
@@ -337,7 +337,7 @@ bottomRightView.addEventListener('click', function(){
 		var findFriendSearch = Ti.UI.createButton({
 			height: 32,
 			width: 75,
-			left: -20,
+			left: 0,
 			title: 'Search',
 			color: '#000000'
 		});

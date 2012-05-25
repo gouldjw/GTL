@@ -21,88 +21,96 @@ chatReceiver.onload = function (e) {
 		{
 			if (latestChatDT == '1/1/1900' || chats[i].TimeSent > latestChatDT)
 			{
-				checkinLocText = '';
-	//			if (i == 0 && chats[i].UserID != Ti.App.Properties.getString('currentUser'))
-	//			{
-	//				Titanium.Media.vibrate();
-	//				Titanium.Media.beep();
-	//			}
-	
-				chatDT = new Date(chats[i].TimeSent.substring(0, 18));
-				var date = new Date();
-				var d  = date.getDate();
-				parsedDateTime = '';
-	
-				if (chatDT.getDate() != d)
+				if (chats[i].Notification != '' && chats[i].Notification != null)
 				{
-					parsedDateTime = (chatDT.getMonth() + 1);
-					parsedDateTime += '/' + chatDT.getDate() + ' ';
+					Ti.UI.createAlertDialog({ title: 'GTL Notification', message: chats[i].Notification }).show();
 				}
 				
-				
-				if (chatDT.getHours() > 12)
-					parsedDateTime += (chatDT.getHours() - 12);
-				else if (chatDT.getHours() > 0)
-					parsedDateTime += chatDT.getHours();
-				else
-					parsedDateTime += "12";
-				
-				if (chatDT.getMinutes() < 10)
-					parsedDateTime += ":0" + chatDT.getMinutes();
-				else
-					parsedDateTime += ":" + chatDT.getMinutes();
-				
-				if (chatDT.getHours() >= 12)
-					parsedDateTime += " pm";
-				else
-					parsedDateTime += " am";
-					
-					
-				if (chats[i].UserID == Ti.App.Properties.getString('currentUser'))
+				if (chats[i].ChatText != '' && chats[i].ChatText != null)
 				{
-					chatPoster = 'You';
-					//Ti.API.info(chats[i].CheckinType);
-					if (chats[i].CheckinType && checkinButton.backgroundImage != 'images/117-todo-green.png')
+					checkinLocText = '';
+		//			if (i == 0 && chats[i].UserID != Ti.App.Properties.getString('currentUser'))
+		//			{
+		//				Titanium.Media.vibrate();
+		//				Titanium.Media.beep();
+		//			}
+		
+					chatDT = new Date(chats[i].TimeSent.substring(0, 18));
+					var date = new Date();
+					var d  = date.getDate();
+					parsedDateTime = '';
+		
+					if (chatDT.getDate() != d)
 					{
-						checkinButton = Ti.UI.createButton({ backgroundImage:'images/117-todo-green.png', height:19, width:18, right:20 });
-						checkinButton.addEventListener('click', locationCheckin);
-						win.setRightNavButton(checkinButton);
+						parsedDateTime = (chatDT.getMonth() + 1);
+						parsedDateTime += '/' + chatDT.getDate() + ' ';
 					}
 					
-					if (chats[i].CheckinType == '0' && chats[i].CheckinVenueID)
-					{
-						if (chats[i].VenueDescription)
-						{
-							checkinLocText = ' (at ' + chats[i].VenueDescription + ') ';
-						}
-						else
-						{
-							checkinLocText = ' (at home) ';
-						}
-					}
-					chatRoom.addLabel(chatPoster + checkinLocText + ' @ ' + parsedDateTime + ':');
-					chatRoom.sendMessage(chats[i].ChatText);
-				}
-				else
-				{
-					Ti.API.info(chats[i].IsFavorite);
-					if (chats[i].IsFavorite) {chatPoster = '* ';}
-					else {chatPoster = '';}
 					
-					chatPoster += chats[i].UserID;
-					if (chats[i].CheckinType == '0' && chats[i].CheckinVenueID)
+					if (chatDT.getHours() > 12)
+						parsedDateTime += (chatDT.getHours() - 12);
+					else if (chatDT.getHours() > 0)
+						parsedDateTime += chatDT.getHours();
+					else
+						parsedDateTime += "12";
+					
+					if (chatDT.getMinutes() < 10)
+						parsedDateTime += ":0" + chatDT.getMinutes();
+					else
+						parsedDateTime += ":" + chatDT.getMinutes();
+					
+					if (chatDT.getHours() >= 12)
+						parsedDateTime += " pm";
+					else
+						parsedDateTime += " am";
+						
+						
+					if (chats[i].UserID == Ti.App.Properties.getString('currentUser'))
 					{
-						if (chats[i].VenueDescription)
+						chatPoster = 'You';
+						//Ti.API.info(chats[i].CheckinType);
+						if (chats[i].CheckinType && checkinButton.backgroundImage != 'images/117-todo-green.png')
 						{
-							checkinLocText = ' (at ' + chats[i].VenueDescription + ') ';
+							checkinButton = Ti.UI.createButton({ backgroundImage:'images/117-todo-green.png', height:19, width:18, right:20 });
+							checkinButton.addEventListener('click', locationCheckin);
+							win.setRightNavButton(checkinButton);
 						}
-						else
+						
+						if (chats[i].CheckinType == '0' && chats[i].CheckinVenueID)
 						{
-							checkinLocText = ' (at home) ';
+							if (chats[i].VenueDescription)
+							{
+								checkinLocText = ' (at ' + chats[i].VenueDescription + ') ';
+							}
+							else
+							{
+								checkinLocText = ' (at home) ';
+							}
 						}
+						chatRoom.addLabel(chatPoster + checkinLocText + ' @ ' + parsedDateTime + ':');
+						chatRoom.sendMessage(chats[i].ChatText);
 					}
-					chatRoom.addLabel(chatPoster + checkinLocText + ' @ ' + parsedDateTime + ':');
-				    chatRoom.recieveMessage(chats[i].ChatText);
+					else
+					{
+						Ti.API.info(chats[i].IsFavorite);
+						if (chats[i].IsFavorite) {chatPoster = '* ';}
+						else {chatPoster = '';}
+						
+						chatPoster += chats[i].UserID;
+						if (chats[i].CheckinType == '0' && chats[i].CheckinVenueID)
+						{
+							if (chats[i].VenueDescription)
+							{
+								checkinLocText = ' (at ' + chats[i].VenueDescription + ') ';
+							}
+							else
+							{
+								checkinLocText = ' (at home) ';
+							}
+						}
+						chatRoom.addLabel(chatPoster + checkinLocText + ' @ ' + parsedDateTime + ':');
+					    chatRoom.recieveMessage(chats[i].ChatText);
+					}
 				}
 	
 				latestChatDT = chats[i].TimeSent;

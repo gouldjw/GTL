@@ -1,89 +1,150 @@
 Logfile initialized
-[INFO] logfile = /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build.log
-[DEBUG] /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/builder.py simulator GameTalkLive /Applications/android-sdk-mac_x86 /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive com.avatarsoft.GameTalkLive 23 NOOKTablet 
+[INFO] logfile = /Users/johngould/Documents/Titanium Studio Workspace/GTL/build.log
+[DEBUG] /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/builder.py simulator GameTalkLive /Applications/android-sdk-mac_x86 /Users/johngould/Documents/Titanium Studio Workspace/GTL com.avatarsoft.GameTalkLive 24 WVGA854 
 [INFO] Building GameTalkLive for Android ... one moment
-[INFO] Titanium SDK version: 1.8.0.1 (12/22/11 13:09 fbdc96f)
+[INFO] Titanium SDK version: 2.0.1 (04/12/12 16:33 999c68a)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.016709 seconds on emulator to get ready
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 30 seconds)
+[DEBUG] waited 30.122116 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.avatarsoft.GameTalkLive installed? False
 [INFO] Fastdev server running, deploying in Fastdev mode
+[INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
+[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/Default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/Default.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/SportIconNS114.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS114.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/SportIconNS140.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS140.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/SportIconNS512.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS512.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/SportIconNS57.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS57.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/app.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/ChalkboardBg.jpg => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/ChalkboardBg.jpg
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/ChalkboardBg@2x.jpg => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/ChalkboardBg@2x.jpg
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/chatMain.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/chatMain.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/chatView.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/chatView.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/chatWS.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/chatWS.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/Copy of chatView.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/Copy of chatView.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/createNew.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/createNew.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/data.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/data.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/GPSCheckin.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/GPSCheckin.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/GPSLocationCheckin.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/GPSLocationCheckin.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/homeScreen.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/homeScreen.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/06-magnify.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/06-magnify.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/06-magnify@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/06-magnify@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/08-chat.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/08-chat.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/08-chat@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/08-chat@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/111-user.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/111-user.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/111-user@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/111-user@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/117-todo.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/117-todo.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/117-todo@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/117-todo@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/166-newspaper.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/166-newspaper.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/166-newspaper@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/166-newspaper@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/237-key.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/237-key.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/237-key@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/237-key@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/55-todo.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/55-todo.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/images/55-todo@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/images/55-todo@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/KS_nav_ui.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/KS_nav_ui.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/KS_nav_views.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/KS_nav_views.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/login.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/login.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/loginPopUp.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/loginPopUp.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/news.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/news.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/profile.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/profile.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/signInPopUpTest.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/signInPopUpTest.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/BlueBalloonLeft.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/BlueBalloonLeft.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/BlueBalloonRight.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/BlueBalloonRight.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/cameraButtonN.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/cameraButtonN.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/cameraButtonN@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/cameraButtonN@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/cameraButtonP.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/cameraButtonP.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/cameraButtonP@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/cameraButtonP@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/GrayBalloonLeft.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/GrayBalloonLeft.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/GrayBalloonRight.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/GrayBalloonRight.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/GreenBalloonLeft.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/GreenBalloonLeft.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/GreenBalloonRight.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/GreenBalloonRight.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntryBackground.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntryBackground.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntryBackground@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntryBackground@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntryInputField.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntryInputField.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntryInputField@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntryInputField@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntrySendButton.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntrySendButton.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntrySendButton@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntrySendButton@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntrySendButtonPressed.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntrySendButtonPressed.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/MessageEntrySendButtonPressed@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/MessageEntrySendButtonPressed@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/PurpleBalloonLeft.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/PurpleBalloonLeft.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/PurpleBalloonRight.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/PurpleBalloonRight.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/WhiteBalloonLeft.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/WhiteBalloonLeft.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/smsview.bundle/WhiteBalloonRight.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/smsview.bundle/WhiteBalloonRight.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/SportIconNS-72.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS-72.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/SportIconNS57@2x.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS57@2x.png
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/test2Files.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/test2Files.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/testFiles.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/testFiles.js
+[TRACE] COPYING CREATED FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/Titanium-vsdoc1.js => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/Titanium-vsdoc1.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
-[DEBUG] copying app icon: /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/bin/assets/Resources/SportIconNS57.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-land-hdpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-land-ldpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-port-hdpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-port-ldpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-hdpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-ldpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-mdpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-land-mdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-hdpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-ldpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-mdpi/default.png => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-port-mdpi/default_d44e27d97b.png
+[DEBUG] app stylesheet => /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/ApplicationStylesheet.java
+[DEBUG] copying app icon: /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/SportIconNS57.png
 [DEBUG] generating theme.xml
-[DEBUG] found drawable-long-land-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-land-hdpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-land-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-long-land-hdpi/background.png
-[DEBUG] found drawable-long-land-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-land-ldpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-land-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-long-land-ldpi/background.png
-[DEBUG] found drawable-long-port-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-port-hdpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-port-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-long-port-hdpi/background.png
-[DEBUG] found drawable-long-port-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-port-ldpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-long-port-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-long-port-ldpi/background.png
-[DEBUG] found drawable-notlong-land-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-land-hdpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-land-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-notlong-land-hdpi/background.png
-[DEBUG] found drawable-notlong-land-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-land-ldpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-land-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-notlong-land-ldpi/background.png
-[DEBUG] found drawable-notlong-land-mdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-land-mdpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-land-mdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-notlong-land-mdpi/background.png
-[DEBUG] found drawable-notlong-port-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-port-hdpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-port-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-notlong-port-hdpi/background.png
-[DEBUG] found drawable-notlong-port-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-port-ldpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-port-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-notlong-port-ldpi/background.png
-[DEBUG] found drawable-notlong-port-mdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-port-mdpi/default.png
-[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/res/drawable-notlong-port-mdpi/background.png
-[DEBUG] found splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/bin/assets/Resources/default.png
+[DEBUG] found drawable-long-land-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-land-hdpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-land-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-land-hdpi/background.png
+[DEBUG] found drawable-long-land-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-land-ldpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-land-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-land-ldpi/background.png
+[DEBUG] found drawable-long-port-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-port-hdpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-port-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-port-hdpi/background.png
+[DEBUG] found drawable-long-port-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-port-ldpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-long-port-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-long-port-ldpi/background.png
+[DEBUG] found drawable-notlong-land-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-hdpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-land-hdpi/background.png
+[DEBUG] found drawable-notlong-land-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-ldpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-land-ldpi/background.png
+[DEBUG] found drawable-notlong-land-mdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-mdpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-land-mdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-land-mdpi/background.png
+[DEBUG] found drawable-notlong-port-hdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-hdpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-hdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-port-hdpi/background.png
+[DEBUG] found drawable-notlong-port-ldpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-ldpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-ldpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-port-ldpi/background.png
+[DEBUG] found drawable-notlong-port-mdpi splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-mdpi/default.png
+[DEBUG] copying /Users/johngould/Documents/Titanium Studio Workspace/GTL/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/res/drawable-notlong-port-mdpi/background.png
+[DEBUG] found splash screen at /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/assets/Resources/default.png
 [TRACE] Writing out AndroidManifest.xml
-[DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.015922 seconds on emulator to get ready
-[INFO] Installing application on device
-[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveActivity.java to javac build list
-[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveAppInfo.java to javac build list
-[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveApplication.java to javac build list
-[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/R.java to javac build list
-[DEBUG] Building Java Sources: "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveActivity.java" "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveAppInfo.java" "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveApplication.java" "/Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/gen/com/avatarsoft/GameTalkLive/R.java"
+[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/ApplicationStylesheet.java to javac build list
+[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveActivity.java to javac build list
+[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveAppInfo.java to javac build list
+[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveApplication.java to javac build list
+[DEBUG] adding /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/R.java to javac build list
+[DEBUG] Building Java Sources: "/Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/ApplicationStylesheet.java" "/Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveActivity.java" "/Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveAppInfo.java" "/Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/GametalkliveApplication.java" "/Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/gen/com/avatarsoft/GameTalkLive/R.java"
 [INFO] Waiting for SDCard to become available..
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
-[DEBUG] creating unsigned apk: /Users/johngould/Documents/Titanium Studio Workspace/GameTalkLive/build/android/bin/app-unsigned.apk
-[DEBUG] from resource zip => assets/Resources/backgrounds/BallonGreen080810MSP_001r.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/Bunker080807MSP_01.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/Bunker080810RD3MSP_001.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/CourseScenics_090814_PGA_RD2_MurphySports_129.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/CourseScenics_090814_PGA_RD2_MurphySports_142.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/CourseScenics_090814_PGA_RD2_MurphySports_143.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/CourseScenics_090814_PGA_RD2_MurphySports_145.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/CourseScenics_090814_PGA_RD2_MurphySports_146.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/MG_8129.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/MG_8130.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/MG_8131.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/MG_8133sized2.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_087.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_089.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_091.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_095.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_096.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_107.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_108 (1).jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_109.jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_112 (1).jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLinesPainted312091114_Murphy_Sports_113 (1).jpg
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLines_096_crop_blur.png
-[DEBUG] from resource zip => assets/Resources/backgrounds/YardLines_096_cropped.png
+[DEBUG] creating unsigned apk: /Users/johngould/Documents/Titanium Studio Workspace/GTL/build/android/bin/app-unsigned.apk
 [DEBUG] from resource zip => assets/Resources/images/06-magnify.png
 [DEBUG] from resource zip => assets/Resources/images/06-magnify@2x.png
 [DEBUG] from resource zip => assets/Resources/images/08-chat.png
 [DEBUG] from resource zip => assets/Resources/images/08-chat@2x.png
 [DEBUG] from resource zip => assets/Resources/images/111-user.png
 [DEBUG] from resource zip => assets/Resources/images/111-user@2x.png
+[DEBUG] from resource zip => assets/Resources/images/117-todo.png
+[DEBUG] from resource zip => assets/Resources/images/117-todo@2x.png
 [DEBUG] from resource zip => assets/Resources/images/166-newspaper.png
 [DEBUG] from resource zip => assets/Resources/images/166-newspaper@2x.png
 [DEBUG] from resource zip => assets/Resources/images/237-key.png
 [DEBUG] from resource zip => assets/Resources/images/237-key@2x.png
+[DEBUG] from resource zip => assets/Resources/images/55-todo.png
+[DEBUG] from resource zip => assets/Resources/images/55-todo@2x.png
 [DEBUG] from resource zip => assets/Resources/smsview.bundle/BlueBalloonLeft.png
 [DEBUG] from resource zip => assets/Resources/smsview.bundle/BlueBalloonRight.png
 [DEBUG] from resource zip => assets/Resources/smsview.bundle/GrayBalloonLeft.png
@@ -108,19 +169,10 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/smsview.bundle/cameraButtonP@2x.png
 [DEBUG] from resource zip => assets/Resources/ChalkboardBg.jpg
 [DEBUG] from resource zip => assets/Resources/ChalkboardBg@2x.jpg
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r1_c1.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r1_c2.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r1_c3.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r2_c1.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r2_c2.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r2_c3.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r3_c1.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r3_c2.gif
-[DEBUG] from resource zip => assets/Resources/ChatBubble_r3_c3.gif
 [DEBUG] from resource zip => assets/Resources/Copy of chatView.js
 [DEBUG] from resource zip => assets/Resources/Default.png
 [DEBUG] from resource zip => assets/Resources/GPSCheckin.js
-[DEBUG] from resource zip => assets/Resources/GoButton.jpg
+[DEBUG] from resource zip => assets/Resources/GPSLocationCheckin.js
 [DEBUG] from resource zip => assets/Resources/KS_nav_ui.png
 [DEBUG] from resource zip => assets/Resources/KS_nav_views.png
 [DEBUG] from resource zip => assets/Resources/SportIconNS-72.png
@@ -162,38 +214,52 @@ Logfile initialized
 [DEBUG] from resource zip => res/drawable-hdpi/close.png
 [DEBUG] from resource zip => res/drawable-ldpi/close.png
 [DEBUG] from resource zip => res/drawable-long-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-long-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-long-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-long-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-land-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-port-mdpi/background.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/build.properties
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/background.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
-[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
-[INFO] Launching application ... GameTalkLive
+[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/default_d44e27d97b.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/modules/titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/build.properties
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/background.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/thirdparty.jar => org/apache/Commons-NOTICE.txt
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/thirdparty.jar => org/apache/HttpComponents-NOTICE.txt
+[DEBUG] from JAR /Users/johngould/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/android/thirdparty.jar => org/apache/mime4j-NOTICE.txt
+[DEBUG] installing native SDK libs
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.022990 seconds on emulator to get ready
-[INFO] Installing application on device
+[DEBUG] waited 0.014022 seconds on emulator to get ready
+[INFO] Installing application on emulator
+[INFO] Launching application ... GameTalkLive
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.avatarsoft.GameTalkLive/.GametalkliveActivity }
 
 [INFO] Deployed GameTalkLive ... Application should be running.

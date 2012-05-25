@@ -219,14 +219,18 @@ createGamesTableView = function(leagueID, leagueName) {
 				    text: gamelist[i].VisitorTeam,
 				    font: { fontSize: 14, fontFamily: 'Ariel' },
 				    textAlign: 'left',
-				    top: -20
+				    top: 0,
+				    left: 0,
+				    height: 20
 				});
 				homeLabel = Titanium.UI.createLabel({
 				    color: rowColor,
 				    text: gamelist[i].HomeTeam,
 				    font: { fontSize: 14, fontFamily: 'Ariel' },
 				    textAlign: 'left',
-				    top: 20
+				    top: 20,
+				    left: 0,
+				    height: 20
 				});
 				gameTimeLabel = Titanium.UI.createLabel({
 				    color: rowColor,
@@ -234,7 +238,8 @@ createGamesTableView = function(leagueID, leagueName) {
 				    font: { fontSize: 14, fontFamily: 'Ariel' },
 				    textAlign: 'left',
 				    top: 0,
-				    left: 220
+				    left: 220,
+				    height: 40
 				});
 				
 				
@@ -278,8 +283,9 @@ createGamesTableView = function(leagueID, leagueName) {
 	};
 
 	var tv = Ti.UI.createTableView({top: 0, height: 367});
-	tv.addEventListener('singletap', function(_e) {
-		//Titanium.API.info(_e.rowData.id);
+	tv.addEventListener('click', function(_e) {
+		Titanium.API.info(_e.rowData.id);
+		Ti.API.info(_e.rowData.active);
 		if (_e.rowData.active == 'True')
 		{
 			win.remove(gamesList);

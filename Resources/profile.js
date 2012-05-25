@@ -503,7 +503,7 @@ createTeamListTableView = function(leagueid, leaguetitle) {
 	});
 		var pickTeamFooter = Ti.UI.createView({
 		height: 32,
-		width: 150,
+		width: 190,
 		top: 351
 	});
 	
@@ -511,7 +511,7 @@ createTeamListTableView = function(leagueid, leaguetitle) {
 		height: 32,
 		width: 75,
 		//top: 325,
-		left: -20,
+		left: 0,
 		title: 'Back',
 		color: '#000000'
 	});
@@ -528,7 +528,7 @@ createTeamListTableView = function(leagueid, leaguetitle) {
 		height: 32,
 		width: 75,
 		//top: 325,
-		right: -20,
+		right: 0,
 		title: 'Done',
 		color: '#000000'
 	});
