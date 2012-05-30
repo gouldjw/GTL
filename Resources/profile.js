@@ -179,7 +179,6 @@ var favoriteLabel = Ti.UI.createLabel({
 	textAlign: 'center',
     height: 32,
     width: 'auto',
-    top: -1,
     font: { fontSize: 16,
     		fontFamily: 'Helvetica Neue',
     		fontWeight: 'bold'

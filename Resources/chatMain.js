@@ -284,8 +284,8 @@ createGamesTableView = function(leagueID, leagueName) {
 
 	var tv = Ti.UI.createTableView({top: 0, height: 367});
 	tv.addEventListener('click', function(_e) {
-		Titanium.API.info(_e.rowData.id);
-		Ti.API.info(_e.rowData.active);
+		//Ti.API.info(_e.rowData.id);
+		//Ti.API.info(_e.rowData.active);
 		if (_e.rowData.active == 'True')
 		{
 			win.remove(gamesList);

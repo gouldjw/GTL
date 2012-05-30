@@ -253,7 +253,12 @@ var locationCheckin = function()
 	
 		var tv = Ti.UI.createTableView();
 		
-		tv.addEventListener('singletap', function(_e) {
+		tv.addEventListener('longclick', function(_e) {
+			tv.deselectRow(_e.index);
+		});
+		
+		tv.addEventListener('click', function(_e) {
+			
 			Ti.App.Properties.setString('currentLocation', _e.rowData.id);
 			Ti.App.fireEvent('app:checkedIn', {
 				message: 'test'
@@ -445,7 +450,7 @@ var locationCheckin = function()
 						Ti.UI.createAlertDialog({
 				    		title: 'Thanks!', message:"Thank you for entering your seat location."
 				    	}).show();
-						checkinObj.isPrivate = 0;
+//						checkinObj.isPrivate = 0;
 						postCheckin(checkinObj);
 						backgroundWin.close();
 						privacyWin.close();
@@ -456,7 +461,7 @@ var locationCheckin = function()
 				
 				seatNo.addEventListener('click', function()
 				{
-					checkinObj.isPrivate = 1;
+//					checkinObj.isPrivate = 1;
 					postCheckin(checkinObj);
 					backgroundWin.close();
 					privacyWin.close();
