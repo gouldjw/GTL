@@ -59,7 +59,7 @@ Ti.Geolocation.getCurrentPosition(function reportPosition(e) {
             width: 320, height: 50,
             publisherId: 'a14d65f9fb812a6', // You can get your own at http: //www.admob.com/
             adBackgroundColor: 'black',
-            testing: true,
+            testing: false,
             dateOfBirth: new Date(1975, 10, 1, 12, 1, 1),
             gender: 'male',
             keywords: '',

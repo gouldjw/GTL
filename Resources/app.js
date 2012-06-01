@@ -11,8 +11,8 @@ Titanium.UI.setBackgroundColor('#ffffff');
 		win.open();
 	*/
 
-
-
+var notify = require('db/Notification');
+new notify;
 
 var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
 
