@@ -3,6 +3,7 @@ Titanium.UI.currentWindow.setBackgroundColor('#ffffff');
 Titanium.UI.currentWindow.setBackgroundImage('ChalkboardBg.jpg');
 
 var win = Titanium.UI.currentWindow;
+var data = [];
 
 var scrollView = Titanium.UI.createScrollView({
 	contentWidth:'auto',
@@ -12,30 +13,88 @@ var scrollView = Titanium.UI.createScrollView({
 	showHorizontalScrollIndicator:true
 });
 
+tableView = Titanium.UI.createTableView({
+    top: 0,
+    left: 0,
+    bottom: 100,
+    right: 0,
+    style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+    borderWidth: 0,
+	backgroundImage:'ChalkboardBg.jpg'
+});
+
+var row = Ti.UI.createTableViewRow({
+    hasChild: false,
+    selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+});
+row.height = 40;
+
+var uidLabel = Titanium.UI.createLabel({
+    text: 'User ID or Email:',
+    textAlign: 'left',
+    font: {
+        fontSize: 14,
+        fontWeight: 'bold'
+    },
+    left: 10,
+    color: 'black',
+    width: '200',
+    height: 40
+});
+row.add(uidLabel);
+
 var userID = Titanium.UI.createTextField({
     color: '#336699',
-    height: 30,
-    top: 20,
-    left: 20,
-    width: 250,
-    hintText: 'Enter User ID or Email',
-    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+    height: 40,
+    left: 140,
+    width: 150,
+    textAlign: 'left',
+    font: {
+        fontSize: 14
+    },
+    //hintText: 'Enter User ID or Email',
+    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
     autocapitalization:Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
-    autocorrect:false,
-    font: { fontSize: 14, fontFamily: 'Ariel' }
+    autocorrect:false//,
+//    font: { fontSize: 14, fontFamily: 'Ariel' }
 });
+row.add(userID);
+
+data.push(row);
+
+row = Ti.UI.createTableViewRow({
+    hasChild: false,
+    selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+});
+row.height = 40;
+
+var pwdLabel = Titanium.UI.createLabel({
+    text: 'Password:',
+    textAlign: 'left',
+    font: {
+        fontSize: 14,
+        fontWeight: 'bold'
+    },
+    left: 10,
+    color: 'black',
+    width: '200',
+    height: 40
+});
+row.add(pwdLabel);
 
 var password = Titanium.UI.createTextField({
     color: '#336699',
-    height: 30,
-    top: 60,
-    left: 20,
-    width: 250,
-    hintText: 'Enter Password',
+    height: 40,
+    left: 140,
+    width: 150,
+    //hintText: 'Enter Password',
     passwordMask: true,
-    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+    borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
     font: { fontSize: 14, fontFamily: 'Ariel' }
 });
+row.add(password);
+
+data.push(row);
 
 //create label (or button etc)
 /*
@@ -61,7 +120,7 @@ var newAcctLbl = Ti.UI.createLabel({
 	text: 'Create New Account',
 	color: '#dddddd',
 	left: 25,
-	top: 100,
+	top: 120,
 	height: 20,
 	width: 250,
 	textAlign: 'left',
@@ -80,7 +139,7 @@ newAcctLbl.addEventListener('click', function(e)
 
 var loginBtn = Titanium.UI.createButton({
     title: 'Login',
-    top: 140,
+    top: 160,
     left: 20,
     height: 30,
     width: '60%',
@@ -89,7 +148,7 @@ var loginBtn = Titanium.UI.createButton({
 
 var closeBtn = Titanium.UI.createButton({
     title: 'Cancel',
-    top: 180,
+    top: 200,
     left: 20,
     height: 30,
     width: '60%',
@@ -162,9 +221,8 @@ loginBtn.addEventListener('click', function () {
 //	win.close();
 //});
 
-
-scrollView.add(userID);
-scrollView.add(password);
+tableView.setData(data);
+scrollView.add(tableView);
 scrollView.add(newAcctLbl);
 scrollView.add(loginBtn);
 scrollView.add(closeBtn);

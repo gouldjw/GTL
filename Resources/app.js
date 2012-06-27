@@ -35,9 +35,12 @@ var tab1 = Titanium.UI.createTab({
 
 
 tabGroup.addTab(tab1);
-tabGroup.open({
-	transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
-});
+
+setTimeout(function() {
+	tabGroup.open({
+		transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+	});
+}, 1350);
 
 
 

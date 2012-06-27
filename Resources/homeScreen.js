@@ -418,7 +418,7 @@ topRightView.addEventListener('click', function(){
 
 bottomLeftView.addEventListener('click', function(){
 //	var newsTabGroup = Titanium.UI.createTabGroup();
- 
+ /*
 	var newsWin = Ti.UI.createWindow({
 		modal: 'false',
 		url: 'news.js',
@@ -430,7 +430,8 @@ bottomLeftView.addEventListener('click', function(){
 	});
 	
 	Titanium.UI.currentTab.open(newsWin,{animated:true});
-	
+	*/
+	Ti.UI.createAlertDialog({ title: 'GTL News Coming Soon', message: 'Check back here soon for notifications and news about Game Talk Live!' }).show();
 });
 
 topLeftView.addEventListener('click', function(){
