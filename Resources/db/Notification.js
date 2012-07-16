@@ -5,7 +5,7 @@ function NotificationDB() {
 	db.execute('CREATE TABLE IF NOT EXISTS version(version_num TEXT);');
 	
 	db.execute('DELETE FROM version;');
-	db.execute('INSERT INTO version (version_num) VALUES ("1.2.11");');
+	db.execute('INSERT INTO version (version_num) VALUES ("1.2.12");');
 
 	var notificationRS = db.execute('SELECT * FROM notifications ORDER BY createdDate');
 	var lastTime;
@@ -45,7 +45,7 @@ function NotificationDB() {
 				if (notificationTitle == '' || notificationTitle == null) {notificationTitle = 'GTL Notification';}
 				if (notificationText != '' && notificationText != null)
 				{
-					db.execute('INSERT INTO notifications (id, title, body, createdDate, receivedDate, viewed) VALUES (?,?,?,?,?,?)', notifications[i].NotificationID, notificationTitle, notificationText, notifications[i].DateTimeStamp, notifications[i].DateTimeStamp, 1);
+					db.execute('INSERT INTO notifications (id, title, body, createdDate, receivedDate, viewed) VALUES (?,?,?,?,?,?)', notifications[i].NotificationID, notificationTitle, notificationText, notifications[i].DateTimeStamp, notifications[i].DateTimeStamp, 0);
 					lastTime = notifications[i].DateTimeStamp;
 					Ti.UI.createAlertDialog({ title: notificationTitle, message: notificationText }).show();
 				}

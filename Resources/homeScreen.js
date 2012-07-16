@@ -224,6 +224,7 @@ var newsIcon = Ti.UI.createImageView({
 bottomLeftLabel.add(newsIcon);
 bottomLeftView.add(bottomLeftLabel);
 
+bottomLeftLabel.badge = 3;
 
 
 // Block for Bottom Right - Friend Search
@@ -417,7 +418,7 @@ topRightView.addEventListener('click', function(){
 });
 
 bottomLeftView.addEventListener('click', function(){
-//	var newsTabGroup = Titanium.UI.createTabGroup();
+	var newsTabGroup = Titanium.UI.createTabGroup();
  /*
 	var newsWin = Ti.UI.createWindow({
 		modal: 'false',
@@ -431,7 +432,10 @@ bottomLeftView.addEventListener('click', function(){
 	
 	Titanium.UI.currentTab.open(newsWin,{animated:true});
 	*/
-	Ti.UI.createAlertDialog({ title: 'GTL News Coming Soon', message: 'Check back here soon for notifications and news about Game Talk Live!' }).show();
+	//Ti.UI.createAlertDialog({ title: 'GTL News Coming Soon', message: 'Check back here soon for notifications and news about Game Talk Live!' }).show();
+	
+	var newsWin = require('news');
+	Titanium.UI.currentTab.open(newsWin, {animated: true});
 });
 
 topLeftView.addEventListener('click', function(){
@@ -481,14 +485,13 @@ Ti.App.addEventListener('app:loggedIn', function(e) {
 });
 
 
+
 //homeScreen.add(topBannerView);
 homeScreen.add(topLeftView);
 homeScreen.add(topRightView);
 homeScreen.add(bottomLeftView);
 homeScreen.add(bottomRightView);
-
 //homeScreen.open();
-
 
 
 
@@ -505,7 +508,7 @@ createUserListTableView = function(searchString) {
 		Ti.API.info('Search String: ' + searchString);
 		var row;
 		var data = [];
-		
+
 		if (this.responseText != null)
 		{
 			//var rowColor;

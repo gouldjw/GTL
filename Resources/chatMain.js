@@ -196,9 +196,9 @@ createGamesTableView = function(leagueID, leagueName) {
 				currDate = (gameTime.getMonth() + 1) + '/' + gameTime.getDate() + '/' + gameTime.getFullYear();
 				
 				if (gamelist[i].Active == 'True')
-					rowColor = '#000000';
+					rowColor = '#000';
 				else
-					rowColor = '#cccccc';
+					rowColor = '#ccc';
 				
 				
 				if (prevDate != currDate)
@@ -266,7 +266,7 @@ createGamesTableView = function(leagueID, leagueName) {
 	    	//Titanium.API.info('No data');
 	    	rowLabel = Titanium.UI.createLabel({
 				    color: rowColor,
-				    text: 'Error: No Data Found.',
+				    text: 'No events scheduled.',
 				    font: { fontSize: 14, fontFamily: 'Ariel' },
 				    textAlign: 'left'
 				});

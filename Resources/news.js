@@ -1,4 +1,147 @@
+(function() {
+	function formatTime(inputDateTime)
+	{
+	   var hour   = inputDateTime.getHours();
+	   var minute = inputDateTime.getMinutes();
+	   var ap = "AM";
+	   if (hour   > 11) { ap = "PM";             }
+	   if (hour   > 12) { hour = hour - 12;      }
+	   if (hour   == 0) { hour = 12;             }
+	   if (hour   < 10) { hour   = "0" + hour;   }
+	   if (minute < 10) { minute = "0" + minute; }
+	   var timeString = hour +
+	                    ':' +
+	                    minute +
+	                    " " +
+	                    ap; // +
+//	                    " CDT";
+	   return timeString;
+	}
 
+	newsWin = Ti.UI.createWindow({
+		title: L('News / Notifications'),
+		barColor: '#036',
+		modal: 'false',
+		backButtonTitle: L('Home'),
+		tabBarHidden: true,
+		navBarHidden: false
+	});
+	
+	notificationsView = Ti.UI.createScrollView({
+		top:0,
+		left:0,
+		width:'auto',
+		height:'auto'
+	});
+	
+	var tv = Ti.UI.createTableView({top: 0, height: 367, deleteButtonTitle:'Delete'});
+	var row;
+	var data = [];
+
+	var db = Ti.Database.open('gtlDB');
+	var notificationRS = db.execute('SELECT * FROM notifications WHERE title <> "DELETED" ORDER BY createdDate');
+	var hasNotifications = false;
+	var rowColor;
+	var notificationDate;
+	var notificationTime;
+
+	while (notificationRS.isValidRow())
+	{
+		hasNotifications = true;
+		notificationTime = new Date(notificationRS.fieldByName('createdDate').substr(0, 19));
+		notificationDate = (notificationTime.getMonth() + 1) + '/' + notificationTime.getDate() + '/' + notificationTime.getFullYear();
+		0+6
+		if (notificationRS.fieldByName('viewed') == 0)
+			rowColor = '#000';
+		else
+			rowColor = '#666';
+			
+		titleLabel = Titanium.UI.createLabel({
+		    color: rowColor,
+		    text: notificationRS.fieldByName('title'),
+		    font: { fontSize: 14, fontFamily: 'Ariel' },
+		    textAlign: 'left',
+		    top: 2,
+		    left: 5,
+		    height: 20
+		});
+		timeLabel = Titanium.UI.createLabel({
+		    color: rowColor,
+		    text: notificationDate + ' ' + formatTime(notificationTime),
+		    font: { fontSize: 14, fontFamily: 'Ariel' },
+		    textAlign: 'left',
+		    top: 25,
+		    left: 5,
+		    height: 20
+		});
+				
+		row = Ti.UI.createTableViewRow({
+			height: 45,
+			id: notificationRS.fieldByName('id'),
+			noteText: notificationRS.fieldByName('body'),
+			noteTitle: notificationRS.fieldByName('title'),
+			color: '#000'
+		});
+		
+		row.add(titleLabel);
+		row.add(timeLabel);
+		data.push(row);
+		notificationRS.next();
+	}
+	notificationRS.close();
+	
+	tv.setData(data);
+	tv.addEventListener('delete',function(e)
+	{
+		var dbEdit = Ti.Database.open('gtlDB');
+		dbEdit.execute('UPDATE notifications SET title = "DELETED" WHERE id = ' + e.rowData.id + ';');
+		dbEdit.close();
+	});
+	
+	tv.addEventListener('click',function(e)
+	{
+		Ti.UI.createAlertDialog({ title: e.rowData.noteTitle, message: e.rowData.noteText }).show();
+		e.row.children[0].color = '#666';
+		e.row.children[1].color = '#666';
+		var dbEdit = Ti.Database.open('gtlDB');
+		dbEdit.execute('UPDATE notifications SET viewed = 1 WHERE id = ' + e.rowData.id + ';');
+		dbEdit.close();
+	});
+	
+	notificationsView.add(tv);
+	newsWin.add(notificationsView);
+	
+	
+	var edit = Titanium.UI.createButton({
+		title:'Edit'
+	});
+	
+	edit.addEventListener('click', function()
+	{
+		newsWin.setRightNavButton(cancel);
+		tv.editing = true;
+	});
+	
+	var cancel = Titanium.UI.createButton({
+		title:'Done',
+		style:Titanium.UI.iPhone.SystemButtonStyle.DONE
+	});
+	cancel.addEventListener('click', function()
+	{
+		newsWin.setRightNavButton(edit);
+		tv.editing = false;
+	});
+	
+	newsWin.setRightNavButton(edit);
+	db.close();
+
+	
+	module.exports = newsWin;
+})();
+
+
+
+/*
 // create table view data object
 var data = [];
 
@@ -87,4 +230,4 @@ xhr.send();
 
 
 
-
+*/
